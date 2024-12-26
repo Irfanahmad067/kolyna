@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
-
 from odoo import api, fields, models
 
 
@@ -21,9 +20,11 @@ class SaleOrderLine(models.Model):
             if self.product_id.id == abonnement_product.id:
                 self.price_unit = self.dog_id.amount
 
-    @api.onchange('product_uom', 'product_uom_qty')
-    def product_uom_change(self):
+    @api.depends('product_id', 'product_uom', 'product_uom_qty')
+    def _compute_price_unit(self):
         if self.dog_id and self.product_id.id == self.env.ref('kolyna_sale.product_abonnement_mensuel').id:
             self.price_unit = self.dog_id.amount
+            self.technical_price_unit = self.dog_id.amount
         else:
-            return super(SaleOrderLine, self).product_uom_change()
+            return super(SaleOrderLine, self)._compute_price_unit()
+

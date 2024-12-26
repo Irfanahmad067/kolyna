@@ -26,11 +26,9 @@ or change of subscription plan, etc.). So the price of the line created by the s
     'data': [
         'views/sale_views.xml',
         'views/account_invoice_views.xml',
-
         'data/data.xml',
     ],
-    'demo': [
-    ],
+    
     'installable': True,
     'auto_install': False,
 }
