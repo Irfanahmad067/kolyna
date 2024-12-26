@@ -4,7 +4,6 @@
         <field name="name">Consume Ration</field>
         <field name="interval_number">1</field>
         <field name="interval_type">days</field>
-        <field name="numbercall">-1</field>
         <field name="model_id" ref="model_res_dog"/>
         <field name="nextcall" eval="(DateTime.now().replace(hour=18, minute=29, second=33)).strftime('%Y-%m-%d %H:%M:%S')" />
         <field name="code">model.consume_ration()</field>

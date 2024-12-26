@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
- <odoo>
+<odoo>
     <record id="view_partner_form_koylna" model="ir.ui.view">
         <field name="name">Add some fields on partner</field>
         <field name="model">res.partner</field>
@@ -25,7 +25,7 @@
             </data>
         </field>
     </record>
-        
+
     <record id="res_dog_action_res_partner" model="ir.actions.act_window">
         <field name="context">{'search_default_owner': [active_id], 'default_owner': active_id}</field>
         <field name="name">Dogs</field>
@@ -57,8 +57,8 @@
                 <button class="oe_stat_button" type="action" name="%(dootix_partner.res_dog_prescribed_action_res_partner)d" icon="fa-paw">
                     <field string="Dogs prescribed" name="dogs_prescribed" widget="statinfo"/>
                 </button>
-                <button t-if="is_pickup" class="oe_stat_button" type="action" name="%(dootix_partner.res_dog_pickups_action_res_partner)d" icon="fa-paw">
-                    <field string="Dogs to provide" name="dogs_pickup" widget="statinfo"/>
+                <button class="oe_stat_button" type="action" name="%(dootix_partner.res_dog_pickups_action_res_partner)d" icon="fa-paw" invisible="is_pickup == False">
+                    <field string="Dogs to provide" name="dogs_pickup" widget="statinfo" />
                 </button>
             </div>
         </field>

@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*-
-from odoo import api, fields, models, _
-import logging
-import math
+from odoo import api, fields, models
 from datetime import date
-
-_logger = logging.getLogger(__name__)
-
+import math
 
 class Intolerance(models.Model):
     _name = 'res.dog.intolerance'
@@ -168,7 +164,7 @@ class Dog(models.Model):
 
     def compute_ration_counts(self):
         for record in self:
-            record.rations_count = self.env['mrp.production.plan.line'].search_count([('dog_id', '=', self.id)])
+            record.rations_count = 0
 
     @api.depends('intolerances_ids', 'intolerances_others')
     def _compute_intolerance(self):
@@ -180,37 +176,51 @@ class Dog(models.Model):
                 intolerance_desc += ' ' + record.intolerances_others
             record.intolerances_others_description = intolerance_desc
 
+    def _get_address_from_partner(self, partner):
+        return {
+            'street': partner.street,
+            'street2': partner.street2,
+            'zip': partner.zip,
+            'city': partner.city,
+            'country_id': partner.country_id.name if partner.country_id else '',
+            'phone': partner.phone,
+        }
+
+    def _get_address_from_pickup_point(self, pickup_point):
+        return {
+            'street': pickup_point.street,
+            'street2': pickup_point.street2,
+            'zip': pickup_point.zip,
+            'city': pickup_point.city,
+            'country_id': pickup_point.country_id.name if pickup_point.country_id else '',
+            'phone': pickup_point.phone,
+        }
+
     @api.depends('owner', 'delivery_mode', 'pickup_point')
     def _compute_delivery_address_phone(self):
-        for record in self:
+         for record in self:
             if record.delivery_mode == 'home' and record.owner:
                 partner = record.owner
-                partner_ids = record.owner.child_ids.filtered(lambda l: l.type == 'delivery')
+                partner_ids = partner.child_ids.filtered(lambda l: l.type == 'delivery')
                 if partner_ids:
                     partner = partner_ids and partner_ids[0]
-                record.delivery_address_street = partner.street
-                record.delivery_address_street2 = partner.street2
-                record.delivery_address_zip = partner.zip
-                record.delivery_address_city = partner.city
-                record.delivery_address_country_id = partner.country_id and partner.country_id.name or ''
-                record.delivery_phone = partner.phone
-            elif record.delivery_mode == 'pickup' and record.pickup_point:
-                    record.delivery_address_street = record.pickup_point.street
-                    record.delivery_address_street2 = record.pickup_point.street2
-                    record.delivery_address_zip = record.pickup_point.zip
-                    record.delivery_address_city = record.pickup_point.city
-                    record.delivery_address_country_id = record.pickup_point.country_id and record.pickup_point.country_id.name or ''
-                    record.delivery_phone = record.pickup_point.phone
-            elif record.delivery_mode == 'warehouse' and record.pickup_point:
-                record.delivery_address_street = record.pickup_point.name
-            else:
-                record.delivery_address_street = None
-                record.delivery_address_street2 = None
-                record.delivery_address_zip = None
-                record.delivery_address_city = None
-                record.delivery_address_country_id = None
-                record.delivery_phone = None
+                address = self._get_address_from_partner(partner)
 
+            elif record.delivery_mode == 'pickup' and record.pickup_point:
+                address = self._get_address_from_pickup_point(record.pickup_point)
+            elif record.delivery_mode == 'warehouse' and record.pickup_point:
+                    address = self._get_address_from_pickup_point(record.pickup_point)
+                    address['street'] = record.pickup_point.name
+            else:
+                address = {'street': None, 'street2': None, 'zip': None, 'city': None, 'country_id': None, 'phone': None}
+
+            record.delivery_address_street = address.get('street')
+            record.delivery_address_street2 = address.get('street2')
+            record.delivery_address_zip = address.get('zip')
+            record.delivery_address_city = address.get('city')
+            record.delivery_address_country_id = address.get('country_id')
+            record.delivery_phone = address.get('phone')
+          
     def _compute_discount(self):
         self.discount_multiple_dogs = 0
         # if self.owner.dogs_count > 1:
@@ -223,15 +233,12 @@ class Dog(models.Model):
     def _compute_age(self):
         today = date.today()
         if self.birth_date:
-            self.age = today.year - self.birth_date.year - \
-                ((today.month, today.day) <
-                 (self.birth_date.month, self.birth_date.day))
+            self.age = today.year - self.birth_date.year - ((today.month, today.day) <(self.birth_date.month, self.birth_date.day))
         else:
-            self.age = ''
+            self.age = ""
 
     @api.onchange('intolerances_ids')
     def onchange_intolerances(self):
-        selected_ids = self.intolerances_ids
         self.has_others = False
         for record in self.intolerances_ids:
             if record.id == 7:
@@ -251,12 +258,12 @@ class Dog(models.Model):
         else:
             coefficient = 1.25
         self.daily_ration_g = self.weight * coefficient * 10
-
+        
     @api.onchange('daily_ration_g')
     def onchange_ration_g(self):
         self.daily_ration_kg = self.daily_ration_g / 1000
         self.monthly_ration_kg = self.daily_ration_kg * 30.4
-
+        
     def get_correct_price(self):
         self.ensure_one()
         self.daily_ration_kg = self.daily_ration_g / 1000
@@ -268,7 +275,6 @@ class Dog(models.Model):
             price_per_offer = 4.47
         else:
             price_per_offer = 4.47
-
         if len(self.intolerances_ids) > 0:
             if self.offer == 'sp':
                 price_per_offer = 10.37
@@ -276,20 +282,14 @@ class Dog(models.Model):
                 price_per_offer = 5.67
             else:
                 price_per_offer = 4.47
-
         price_per_dog = 70.56  # J
-
         delivery_cost = 0
-
         coefficient_delivery = 0.8 + price_per_offer
-
         if self.delivery_mode == 'home':
             base = 13.5
         else:
             base = 8.5
-
         base = base - self.discount_multiple_dogs
-
         if self.delivery_frequency == 'weekly':
             delivery_cost = base * 4
         elif self.delivery_frequency == 'monthly':
@@ -322,15 +322,15 @@ class Dog(models.Model):
 
     def action_view_rations(self):
         self.ensure_one()
-        return {
-            'type': 'ir.actions.act_window',
-            'name': 'Rations',
-            'view_mode': 'tree',
-            'res_model': 'mrp.production.plan.line',
-            'domain': [('dog_id', '=', self.id)],
-            'context': "{'create': False}"
-        }
-
+        pass
+        # return {
+        #     'type': 'ir.actions.act_window',
+        #     'name': 'Rations',
+        #     'view_mode': 'list',
+        #     'res_model': 'mrp.production.plan.line',
+        #     'domain': [('dog_id', '=', self.id)],
+        #     'context': "{'create': False}"
+        # }
 
 class DogGroup(models.Model):
     _name = 'dog.group'
@@ -365,3 +365,4 @@ class CustomerStatus(models.Model):
     _description = 'Customer Status'
     
     name = fields.Char()
+    

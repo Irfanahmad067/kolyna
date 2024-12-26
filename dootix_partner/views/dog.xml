@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
         <record id="view_dog_filter" model="ir.ui.view">
@@ -6,21 +5,21 @@
             <field name="model">res.dog</field>
             <field name="arch" type="xml">
                 <search string="Search Dog">
-                   <field name="name"/>
-                   <field name="owner"/>
-                   <field name="pickup_point"/>
-                   <filter string="Dog" name="dog" domain="[('dog_rank', '=', 'dog')]"/>
-                    <filter string="Dog bis" name="dog bis" domain="[('dog_rank', '=', 'dog-bis')]"/>
-                    <separator/>
-                    <filter string="Late Activities" name="activities_overdue" domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]" help="Show all records which has next action date is before today"/>
-                    <filter string="Today Activities" name="activities_today" domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
-                    <filter string="Future Activities" name="activities_upcoming_all" domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
-                   <group expand="0" string="Group By">
-                        <filter string="Life stage" name="life_stage" context="{'group_by':'life_stage'}"/>
-                        <filter string="Dog Expedition Group" name="dog_expedition" context="{'group_by':'dog_expedition_id'}"/>
-                        <filter string="Status" name="status" context="{'group_by':'state'}"/>
-                    </group>
-               </search>
+                <field name="name"/>
+                    <field name="owner"/>
+                    <field name="pickup_point"/>
+                    <filter string="Dog" name="dog" domain="[('dog_rank', '=', 'dog')]"/>
+                        <filter string="Dog bis" name="dog bis" domain="[('dog_rank', '=', 'dog-bis')]"/>
+                        <separator/>
+                        <filter string="Late Activities" name="activities_overdue" domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]" help="Show all records which has next action date is before today"/>
+                        <filter string="Today Activities" name="activities_today" domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                        <filter string="Future Activities" name="activities_upcoming_all" domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
+                      <group expand="0" string="Group By">
+                            <filter string="Life stage" name="life_stage" context="{'group_by':'life_stage'}"/>
+                            <filter string="Dog Expedition Group" name="dog_expedition" context="{'group_by':'dog_expedition_id'}"/>
+                            <filter string="Status" name="status" context="{'group_by':'state'}"/>
+                        </group>
+                </search>
             </field>
         </record>
 
@@ -35,21 +34,21 @@
                 </map>
             </field>
         </record>
-    
-        <record id="view_dog_tree" model="ir.ui.view">
-            <field name="name">res.dog.tree</field>
+
+        <record id="view_dog_list" model="ir.ui.view">
+            <field name="name">res.dog.list</field>
             <field name="model">res.dog</field>
             <field eval="8" name="priority"/>
             <field name="arch" type="xml">
-                <tree string="Contacts">
-                    <field name="name"/>
-                    <field name="owner"/>
-                    <field name="daily_ration_g"/>
-                    <field name="meat_size"/>
-                    <field name="intolerances_others_description"/>
-                    <field name="customer_status"/>
-                    <field name="state"/>
-                </tree>
+                <list string="Contacts">
+                    <field name="name" />
+                    <field name="owner" />
+                    <field name="daily_ration_g" />
+                    <field name="meat_size" />
+                    <field name="intolerances_others_description" />
+                    <field name="customer_status" />
+                    <field name="state" />
+                </list>
             </field>
         </record>
 
@@ -57,7 +56,7 @@
             <field name="name">res.partner.form</field>
             <field name="model">res.dog</field>
             <field name="priority" eval="1"/>
-            <field name="arch" type="xml">  
+            <field name="arch" type="xml">
                 <form string="Dogs form">
                     <header>
                         <field name="state" widget="statusbar" options="{'clickable': '1'}" statusbar_visible="waiting,confirmed,in_progress,cancel"/>
@@ -80,21 +79,19 @@
                         <group>
                             <group>
                                 <field name="id"/>
-                                <field name="owner" />
+                                <field name="owner"/>
                                 <field name="dog_rank"/>
                                 <field name="species"/>
-                                <field name="easybarf_customer" attrs="{'invisible': [('dog_rank','=', 'dog-bis')]}"/>
+                                <field name="easybarf_customer" invisible="dog_rank == 'dog-bis'"/>
                             </group>
                             <group>
-                                <field name="remark" attrs="{'invisible': [('dog_rank','=', 'dog-bis')]}"/>
+                                <field name="remark" invisible="dog_rank == 'dog-bis'"/>
                             </group>
                         </group>
-
-                        <group attrs="{'invisible': [('dog_rank','=', 'dog-bis')]}">
-                        <h2>Order</h2>
+                        <group invisible="dog_rank == 'dog-bis'">
+                            <h2>Order</h2>
                         </group>
-
-                        <group attrs="{'invisible': [('dog_rank','=', 'dog-bis')]}">
+                        <group invisible="dog_rank == 'dog-bis'">
                             <group>
                                 <field name="order_type"/>
                                 <field name="customer_status" options="{'no_create': True}"/>
@@ -111,171 +108,162 @@
                                 <field name="weight"/>
                             </group>
                         </group>
-
-                        <group attrs="{'invisible': [('dog_rank','=', 'dog-bis')]}">
-                        <h2>Rations</h2>
+                        <group invisible="dog_rank == 'dog-bis'">
+                            <h2>Rations</h2>
                         </group>
                         <group>
                             <group>
-                                <field name="desired_ration" attrs="{'invisible': [('dog_rank','=', 'dog-bis')]}"/>
+                                <field name="desired_ration" invisible="dog_rank == 'dog-bis'"/>
                                 <field name="daily_ration_g"/>
-                                <field name="bag_type" attrs="{'invisible': [('dog_rank','=', 'dog-bis')]}"/>
+                                <field name="bag_type" invisible="dog_rank == 'dog-bis'"/>
                                 <field name="meat_size"/>
-                                <field name="meals_per_month" attrs="{'invisible': [('dog_rank','=', 'dog-bis')]}"/>
-                                <field name="type_of_rations" attrs="{'invisible': [('dog_rank','=', 'dog-bis')]}"/>
+                                <field name="meals_per_month" invisible="dog_rank == 'dog-bis'"/>
+                                <field name="type_of_rations" invisible="dog_rank == 'dog-bis'"/>
                             </group>
-                            <group attrs="{'invisible': [('dog_rank','=', 'dog-bis')]}">
+                            <group invisible="dog_rank == 'dog-bis'">
                                 <field name="offer"/>
-                                <field name="has_others" attrs="{'invisible': 1}"/>
-                                <field name="intolerances_ids" widget="many2many_tags" options="{'limit': 3, 'no_create': True}" attrs="{'invisible': [('offer','=', 's')]}"/>
-                                <field name="intolerances_others" attrs="{'invisible': [('has_others','=', False)]}"/>
+                                <field name="has_others" invisible="1"/>
+                                <field name="intolerances_ids" widget="many2many_tags" options="{'limit': 3, 'no_create': True}" invisible="offer == 's'"/>
+                                <field name="intolerances_others" invisible="has_others == False"/>
                                 <field name="intolerances_others_description"/>
                                 <field name="specific_menu"/>
                                 <field name="specific_ingredients"/>
-                                <field name="specific_ingredients_other" attrs="{'invisible': [('specific_ingredients','!=', 'other-specificity')]}"/>
+                                <field name="specific_ingredients_other" invisible="specific_ingredients != 'other-specificity'"/>
                                 <field name="dog_group_id" options="{'no_create': True}"/>
-                               </group>
-                               <group>
-                               </group>
+                            </group>
+                            <group>
+                            </group>
                         </group>
-                        <group attrs="{'invisible': [('dog_rank','=', 'dog-bis')]}"><h2>Deliveries</h2>
+                        <group invisible="dog_rank == 'dog-bis'"><h2>Deliveries</h2>
                         </group>
                             <group>
                                 <group>
-                                <field name="first_delivery_date"/>
-                                <field name="frequency_of_deliveries" attrs="{'invisible': [('dog_rank','=', 'dog-bis')]}"/>
-                                <field name="delivery_mode"  attrs="{'invisible': [('dog_rank','=', 'dog-bis')]}"/>
-                                <field name="pickup_point" attrs="{'invisible': [('dog_rank','=', 'dog-bis')]}"/>
-                                <field name="dog_expedition_id" attrs="{'invisible': [('dog_rank','=', 'dog-bis')]}"/>
-                                <field name="delivery_cycle" attrs="{'invisible': [('dog_rank','=', 'dog-bis')]}"/>
+                                    <field name="first_delivery_date"/>
+                                    <field name="frequency_of_deliveries" invisible="dog_rank == 'dog-bis'"/>
+                                    <field name="delivery_mode"  invisible="dog_rank == 'dog-bis'"/>
+                                    <field name="pickup_point" invisible="dog_rank == 'dog-bis'"/>
+                                    <field name="dog_expedition_id" invisible="dog_rank == 'dog-bis'"/>
+                                    <field name="delivery_cycle" invisible="dog_rank == 'dog-bis'"/>
                                 </group>
-                                <group attrs="{'invisible': [('dog_rank','=', 'dog-bis')]}">
-                                <label for="delivery_address_street" string="Delivery Address"/>
-                                <div class="o_address_format">
-                                    <field name="delivery_address_street" placeholder="Street..." class="o_address_street"/>
-                                    <field name="delivery_address_street2" placeholder="Street 2..." class="o_address_street"/>
-                                    <field name="delivery_address_city" placeholder="City" class="o_address_city"/>
-                                    <field name="delivery_address_zip" placeholder="ZIP" class="o_address_zip"/>
-                                    <field name="delivery_address_country_id" placeholder="Country" class="o_address_country"/>
-                                </div>
-                                <field name="delivery_phone"/>
-                                <field name="delivery_info"/>
+                                <group invisible="dog_rank == 'dog-bis'">
+                                    <label for="delivery_address_street" string="Delivery Address"/>
+                                    <div class="o_address_format">
+                                        <field name="delivery_address_street" placeholder="Street..." class="o_address_street"/>
+                                        <field name="delivery_address_street2" placeholder="Street 2..." class="o_address_street"/>
+                                        <field name="delivery_address_city" placeholder="City" class="o_address_city"/>
+                                        <field name="delivery_address_zip" placeholder="ZIP" class="o_address_zip"/>
+                                        <field name="delivery_address_country_id" placeholder="Country" class="o_address_country"/>
+                                    </div>
+                                    <field name="delivery_phone"/>
+                                    <field name="delivery_info"/>
                                 </group>
                             </group>
 
-                            <notebook attrs="{'invisible': [('dog_rank','=', 'dog-bis')]}">
-                                 <page string="Rate">
+                            <notebook invisible="dog_rank == 'dog-bis'">
+                                <page string="Rate">
                                     <group>
-                                    <field name="price_liste"/>
+                                        <field name="price_liste"/>
                                     </group>
                                     <group>
-                                    <field name="puppy_calculation_basis"/>
-                                    <field name="discount_bidaily_bag"/>
-                                    <field name="postal_delivery_fee"/>
-                                    <field name="delivery_frequency_invoiced"/>
-                                    <field name="billing_frequency"/>
-                                    <field name="remark_billing"/>
+                                        <field name="puppy_calculation_basis"/>
+                                        <field name="discount_bidaily_bag"/>
+                                        <field name="postal_delivery_fee"/>
+                                        <field name="delivery_frequency_invoiced"/>
+                                        <field name="billing_frequency"/>
+                                        <field name="remark_billing"/>
                                     </group>
                                 </page>
-
                                 <page string="Growth">
-                                    <group>
                                         <group>
-                                        <field name="initial_puppy_weight"/>
-                                        <field name="date_update_puppy"/>
-                                        <field name="last_weight_puppy"/>
+                                            <group>
+                                            <field name="initial_puppy_weight"/>
+                                            <field name="date_update_puppy"/>
+                                            <field name="last_weight_puppy"/>
+                                            </group>
+                                            <group>
+                                            <field name="remark_puppy"/>
+                                            <field name="growth_average_ration"/>
+                                            </group>
+                                            <group>
+                                            <field name="starting_percentage"/>
+                                            <field name="rations_2_month"/>
+                                            <field name="rations_3_month"/>
+                                            <field name="rations_4_month"/>
+                                            <field name="rations_5_month"/>
+                                            <field name="rations_6_month"/>
+                                            </group>
+                                            <group>
+                                            <field name="rations_7_month"/>
+                                            <field name="rations_8_month"/>
+                                            <field name="rations_9_month"/>
+                                            <field name="rations_10_month"/>
+                                            <field name="rations_11_month"/>
+                                            <field name="rations_12_month"/>
+                                            </group>
                                         </group>
+                                    </page>
+                                    <page string="Starter Kit">
                                         <group>
-                                        <field name="remark_puppy"/>
-                                        <field name="growth_average_ration"/>
+                                        <field name="starter1"/>
+                                        <field name="starter2"/>
+                                        <field name="starter3"/>
+                                        <field name="starter4"/>
+                                        <field name="starter5"/>
+                                        <field name="starter6"/>
+                                        <field name="starter7"/>
+                                        <field name="starter8"/>
                                         </group>
+                                    </page>
+                                    <page string="Prospect">
                                         <group>
-                                        <field name="starting_percentage"/>
-                                        <field name="rations_2_month"/>
-                                        <field name="rations_3_month"/>
-                                        <field name="rations_4_month"/>
-                                        <field name="rations_5_month"/>
-                                        <field name="rations_6_month"/>
+                                            <group>
+                                            <h2>Relaunch newsletters</h2>
+                                            <field name="newsletter_puppy_price_drop"/>
+                                            <field name="newsletter_puppy_birthday"/>
+                                            <field name="broadcast_list_EB"/>
+                                            <field name="newsletter_testing_month"/>
+                                            <field name="newsletter_healthy_food"/>
+                                            <field name="newsletter_faq"/>
+                                            </group>
+                                            <group>
+                                            <field name="newsletter_no_relaunch"/>
+                                            </group>
                                         </group>
+                                    </page>
+                                    <page string="Production">
                                         <group>
-                                        <field name="rations_7_month"/>
-                                        <field name="rations_8_month"/>
-                                        <field name="rations_9_month"/>
-                                        <field name="rations_10_month"/>
-                                        <field name="rations_11_month"/>
-                                        <field name="rations_12_month"/>
+                                            <group>
+                                            <field name="bag_size"/>
+                                            <field name="piece_size"/>
+                                            </group>
                                         </group>
-                                    </group>
-                                </page>
-
-                                <page string="Starter Kit">
-                                    <group>
-                                    <field name="starter1"/>
-                                    <field name="starter2"/>
-                                    <field name="starter3"/>
-                                    <field name="starter4"/>
-                                    <field name="starter5"/>
-                                    <field name="starter6"/>
-                                    <field name="starter7"/>
-                                    <field name="starter8"/>
-                                    </group>
-                                </page>
-
-                                <page string="Prospect">
-                                    <group>
-                                        <group>
-                                        <h2>Relaunch newsletters</h2>
-                                        <field name="newsletter_puppy_price_drop"/>
-                                        <field name="newsletter_puppy_birthday"/>
-                                        <field name="broadcast_list_EB"/>
-                                        <field name="newsletter_testing_month"/>
-                                        <field name="newsletter_healthy_food"/>
-                                        <field name="newsletter_faq"/>
-                                        </group>
-                                        <group>
-                                        <field name="newsletter_no_relaunch"/>
-                                        </group>
-                                    </group>
-                                </page>
-
-                                <page string="Production">
-                                    <group>
-                                        <group>
-                                        <field name="bag_size"/>
-                                        <field name="piece_size"/>
-                                        </group>
-                                    </group>
-                                </page>
+                                    </page>
                             </notebook>
-
-                      </sheet>
-                      <div class="oe_chatter">
-                        <field name="message_follower_ids" widget="mail_followers"/>
-                        <field name="activity_ids" widget="mail_activity"/>
-                        <field name="message_ids" widget="mail_thread"/>
-                    </div>
+                    </sheet>
+                    <chatter/>
                 </form>
             </field>
         </record>
-        
+
         <record id="action_dogs" model="ir.actions.act_window">
             <field name="name">Dogs</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">res.dog</field>
-            <field name="view_mode">tree,form,activity,map</field>
+            <field name="view_mode">list,form,activity,map</field>
             <field name="help" type="html">
-              <p class="o_view_nocontent_smiling_face">
-                Create a dog in your address book
-              </p><p>
-                Odoo helps you to easily track all activities related to a dog.
-              </p>
+                <p class="o_view_nocontent_smiling_face">
+                    Create a dog in your address book
+                </p>
+                <p>
+                    Odoo helps you to easily track all activities related to a dog.
+                </p>
             </field>
         </record>
-        
-        <record id="action_dogs_view_tree" model="ir.actions.act_window.view">
+
+        <record id="action_dogs_view_list" model="ir.actions.act_window.view">
             <field name="sequence" eval="1"/>
-            <field name="view_mode">tree</field>
-            <field name="view_id" ref="view_dog_tree"/>
+            <field name="view_mode">list</field>
+            <field name="view_id" ref="view_dog_list"/>
             <field name="act_window_id" ref="action_dogs"/>
         </record>
         <record id="action_dogs_view_form" model="ir.actions.act_window.view">
@@ -284,13 +272,13 @@
             <field name="view_id" ref="view_dog_form"/>
             <field name="act_window_id" ref="action_dogs"/>
         </record>
-        
+
         <menuitem id="res_dog_menu_contacts"
             name="Dogs"
             action="action_dogs"
             parent="contacts.menu_contacts"
             sequence="2"/>
-            
+    
         <record id="res_dog_intolerance_pork" model="res.dog.intolerance">
             <field name="name">Pork</field>
             <field name="coefficient">1.18</field>
@@ -344,7 +332,6 @@
             <field name="coefficient">1.18</field>
         </record>
 
-
         <!-- Server Action To add follow in Dog which contains owner -->
         <record id="action_dog_add_followr" model="ir.actions.server">
             <field name="name">Add Followers</field>
@@ -352,11 +339,10 @@
             <field name="binding_model_id" ref="model_res_dog"/>
             <field name="state">code</field>
             <field name="code">
-for rec in records:
-    if rec.owner:
-        rec.message_subscribe(rec.owner.ids)
+        for rec in records:
+            if rec.owner:
+                rec.message_subscribe(rec.owner.ids)
             </field>
         </record>
-
     </data>
 </odoo>
