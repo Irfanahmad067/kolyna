@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <odoo>
+    <record id="view_partner_form_koylna" model="ir.ui.view">
+        <field name="name">Add some fields on partner</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//group/group/field[@name='vat']" position="after">
+                    <field name="id" />
+                    <field name="prescriber" />
+                </xpath>
+                <xpath expr="//group/group/field[@name='website']" position="after">
+                    <field name="facebook_page" />
+                    <field name="instagram_page" />
+                    <field name="newsletter" />
+                </xpath>
+                <group name="sale" position="inside">
+                    <field name="is_prescriber" />
+                    <field name="is_pickup" />
+                    <field name="status_pickup" options="{'horizontal': true}" widget="radio" />
+                    <field name="freezer" />
+                    <field name="freezer_id" />
+                </group>
+            </data>
+        </field>
+    </record>
+        
+    <record id="res_dog_action_res_partner" model="ir.actions.act_window">
+        <field name="context">{'search_default_owner': [active_id], 'default_owner': active_id}</field>
+        <field name="name">Dogs</field>
+        <field name="res_model">res.dog</field>
+    </record>
+    
+    <record id="res_dog_prescribed_action_res_partner" model="ir.actions.act_window">
+        <field name="domain">[('owner.prescriber','=',active_id)]</field>
+        <field name="name">Dogs prescribed</field>
+        <field name="res_model">res.dog</field>
+    </record>
+    
+    <record id="res_dog_pickups_action_res_partner" model="ir.actions.act_window">
+        <field name="domain">[('pickup_point','=',active_id)]</field>
+        <field name="name">Dogs to provide</field>
+        <field name="res_model">res.dog</field>
+    </record>
+
+    <record model="ir.ui.view" id="res_partner_view_inherit_dogs">
+        <field name="name">partner.view.button.dogs_count</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="priority" eval="6"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button class="oe_stat_button" type="action" name="%(dootix_partner.res_dog_action_res_partner)d" icon="fa-paw">
+                    <field string="My dogs" name="dogs_count" widget="statinfo"/>
+                </button>
+                <button class="oe_stat_button" type="action" name="%(dootix_partner.res_dog_prescribed_action_res_partner)d" icon="fa-paw">
+                    <field string="Dogs prescribed" name="dogs_prescribed" widget="statinfo"/>
+                </button>
+                <button t-if="is_pickup" class="oe_stat_button" type="action" name="%(dootix_partner.res_dog_pickups_action_res_partner)d" icon="fa-paw">
+                    <field string="Dogs to provide" name="dogs_pickup" widget="statinfo"/>
+                </button>
+            </div>
+        </field>
+    </record>
+</odoo>

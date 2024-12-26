@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ACCOUNT.MOVE FORM VIEW INHERIT -->
+    <record id="view_move_form_inherit_kolyna_subscription" model="ir.ui.view">
+        <field name="name">account.move.form.inherit.kolyna.subscription</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="dog_ids" widget="many2many_tags"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- ACCOUNT.MOVE SEARCH VIEW INHERIT -->
+    <record id="view_account_invoice_filter_inherit_kolyna_subscription" model="ir.ui.view">
+        <field name="name">view.account.invoice.filter.inherit.kolyna.subscription</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search/filter[@name='to_check']" position="after">
+                <separator/>
+                    <field name="dog_ids" string="Dog" filter_domain="[('dog_ids.name', 'ilike', self)]"/>
+                <separator/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

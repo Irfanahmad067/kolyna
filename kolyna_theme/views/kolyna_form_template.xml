@@ -1,0 +1,537 @@
+<odoo>    
+    <template id="kolina_theme_template" name="Your Dog">
+        <t t-call="web.layout">
+            <t t-set="head">
+                <t t-call-assets="web.assets_common" t-js="false"/>
+                <t t-call-assets="web.assets_frontend" t-js="false"/>
+                <t t-call-assets="web.assets_common" t-css="false"/>
+                <t t-call-assets="web.assets_frontend" t-css="false"/>
+                <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NZ93QZK');</script>
+            </t>
+            
+            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZ93QZK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+            <div class="container" id="kolyna">
+                <form id="kolyna_form" method="post" action="/forms/starter_kit_submit">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <div class="row">
+                        <div class="kolyna_form_theme">
+                            <div class="main_container page page_1">
+                                <div class="opt_header">
+                                    <h1 class="text-left form_title text-uppercase">Your Dog</h1>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_name">
+                                        <label class="control-label text-uppercase require">Name<span class="control_req">*</span></label>
+                                        <input type="text" name="dogname" class="form-control" required="required"/>
+                                    </div>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_barf">
+                                        <label class="control-label text-uppercase require">Already fed using Barf method ?<span class="control_req">*</span></label>
+                                        <div class="form_radio">
+                                            <label class="radio_item radio-inline">
+                                                <t t-if="default_no_barf == true"><input style="margin-right:5px;" type="radio" name="fed_using_barf" value="y" checked="true"/>Yes</t>
+                                                <t t-if="default_no_barf == false"><input style="margin-right:5px;" type="radio" name="fed_using_barf" value="y"/>Yes</t>
+                                            </label>
+                                            <label class="radio_item radio-inline">
+                                            	<t t-if="default_no_barf == true"><input style="margin-right:5px;" type="radio" name="fed_using_barf" value="n"/>No</t>
+                                                <t t-if="default_no_barf == false"><input style="margin-right:5px;" type="radio" name="fed_using_barf" value="n" checked="true"/>No</t>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_breed">
+                                        <label class="control-label text-uppercase">Breed</label>
+                                        <input type="text" name="breed_name" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_bdate">
+                                        <label class="control-label text-uppercase">Birthdate</label>
+                                        <div class="input-group date" id="birthdate_container" data-target-input="nearest">
+                                            <input type="text" placeholder="YYYY-MM-DD" class="form-control datetimepicker-input"  data-toggle="datetimepicker" data-target="#birthdate_container" id="birthdate" name="birthdate"/>
+                                            <div class="input-group-append" data-target="#birthdate_container" data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="opt_form">
+                                    <label class="label_info">
+                                        Pour les chiens de moins d'un an, indiquez le poids estimé à l'âge adulte, et nous vous contacterons afin de convenir ensemble d'une ration adaptée à leur croissance.
+                                    </label>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_weight">
+                                        <label class="control-label text-uppercase require">Weight<span class="control_req">*</span></label>
+                                        <input type="number" step="0.1" min="1" max="150" name="dog_weight" class="form-control" t-att-value="default_weight"/>
+                                    </div>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_ration">
+                                        <label class="control-label text-uppercase require">Desired ration<span class="control_req">*</span></label>
+                                        <t t-foreach="desired_ration" t-as="ration">
+                                            <div class="select_ration">
+                                                <label class="control-text text-muted radio-inline">
+                                                    <t t-if="desired_ration_default == ration[0]">
+                                                        <input type="radio" t-attf-name="ration_type" t-att-value="ration[0]" checked="checked"/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <input type="radio" t-attf-name="ration_type" t-att-value="ration[0]"/>
+                                                    </t>
+                                                    <t t-esc="ration[1]"/>
+                                                </label>
+                                            </div>
+                                        </t>
+                                        <label class="ration-info">
+                                            La taille des rations est à choisir en fonction de la corpulence de votre chien et de son niveau d'activité.
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_note">
+                                        <label class="control-label require">Note : veuillez remplir les champs marqués d'un <span class="control_req">*</span>.</label>
+                                    </div>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_ration_cal text-center">
+                                        <label class="ration_label">
+                                            Ration Quotidienne (GR)
+                                        </label>
+                                        <div class="ration_value">
+                                            <input type='text' value="50" name="daily_ration_g" style="display: none;"/>
+                                            <label class="value_label ration_value">0</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="opt_footer">
+                                    <button current-id="1" class="btn btn-next" type="button">Next Page >>
+                                    </button>
+                                    <div style="clear: both;"></div>
+                                </div>
+                            </div>
+                            <div class="page_2" style="display: none;">
+                                <div class="opt_header">
+                                    <h1 class="text-left form_title text-uppercase">Offer</h1>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_offer_name">
+                                        <label class="control-label text-uppercase">Our Offers Barf<span class="control_req">*</span></label>
+                                        <div class="offer_select">
+                                            <select class="form-control" name="offer" id="select_offer">
+                                                <t t-foreach="our_offers" t-as="offer">
+                                                    <t t-if="our_offers_default == offer[0]">
+                                                        <option t-att-value="offer[0]" selected="true"><t t-esc="offer[1]"/></option>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <option t-att-value="offer[0]"><t t-esc="offer[1]"/></option>
+                                                    </t>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="opt_form text-justify">
+                                    <label class="label_info label_info_std">
+                                        Avec l'offre Standard, la composition des menus varie en fonction de nos approvisionnements. Chaque chien reçoit des sources de protéines diverses essentielles à son équilibre. Idéal pour les chiens n'ayant pas d'allergie alimentaire.
+                                    </label>
+                                    <label class="label_info label_info_std_no_barf">
+                                        <h3>Offre Standard – Idéale pour les chiens n’ayant pas d’allergie alimentaire.</h3>
+Durant les deux premiers mois, votre chien recevra des rations évolutives afin que le changement de régime se fasse dans les meilleures conditions. Par la suite, la composition des menus variera en fonction de nos approvisionnements. Chaque chien reçoit des sources de protéines diverses essentielles à son équilibre.
+                                    </label>
+                                    <label class="label_info label_info_pre" style="display: none;">
+                                        Avec l'offre Premium vous aurez la possibilité à l'étape suivante d'éliminer des ingrédients que votre chien ne tolère pas. Idéal pour les chiens allergiques.
+                                    </label>
+                                    <label class="label_info label_info_pre_no_barf" style="display: none;">
+                                        <h3>Offre Premium – Idéale pour les chiens allergiques.</h3>
+Durant les deux premiers mois, votre chien recevra des rations évolutives afin dque le changement de régime se fasse dans les meilleures conditions. Par la suite, il recevra des menus dont la composition variera en fonction de nos approvisionnements. Vous pourrez toutefois à l’étape suivante éliminer les ingrédients que votre chien ne tolère pas.
+                                    </label>
+                                    <label class="label_info label_info_swiss_pre" style="display: none;">
+                                        Avec l'offre Swiss Premium, la totalité des viandes est garantie d'origine suisse. Vous aurez la possibilité à l'étape suivante d'éliminer certains ingrédients en cas d'allergie.
+                                    </label>
+                                    <label class="label_info label_info_swiss_pre_no_barf" style="display: none;">
+                                        <h3>Offre Swiss Premium – Ingrédients 100% suisses</h3>
+Durant les deux premiers mois, votre chien recevra des rations évolutives afin que le changement de régime se fasse dans les meilleures conditions. Par la suite, il recevra des menus dont la composition variera en fonction de nos approvisionnements. Vous pourrez toutefois à l’étape suivante éliminer les ingrédients que votre chien ne tolère pas. La totalité des ingrédients est garantie d’origine suisse.
+                                    </label>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_offer_amt text-center">
+                                        <label class="amt_label">
+                                            Votre Abonnement (CHF/MOIS)
+                                        </label>
+                                        <div class="offer_value">
+                                            <input class="monthly_amount" type='text' value="30" name="amount" style="display: none;"/>
+                                            <label class="monthly_amount value_label offer_amt">0</label>
+                                        </div>
+                                        <div class="sub_footer">
+                                            <label class="sub_footer_label">
+                                                Les frais de livraison sont inclus.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="opt_footer">
+                                    <button current-id="2" class="btn btn-pre" type="button"> &lt;&lt; Previous Page
+                                    </button>
+                                    <button current-id="2" class="btn btn-next" type="button">Next Page >>
+                                    </button>
+                                    <div style="clear: both;"></div>
+                                </div>
+                            </div>
+                            <div class="page_3" style="display: none;">
+                                <div class="opt_header">
+                                    <h1 class="text-left form_title text-uppercase">Intolerances</h1>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="label_text">
+                                        <label class="text-justify">
+                                            Vous avez la possibilité d'éliminer les ingrédients que votre chien ne toléré pas. <b>Cochez au maximum 3 ingrédients à supprimer</b>. Nous les remplacerons par d'autres afin de garder une ration équilibrée avec tous les apports nécessaires.
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_ing">
+                                        <label class="control-label text-uppercase">Ingrédients À Supprimer</label>
+                                        <div class="form_checkbox ingredients">
+                                            <t t-foreach="ingredients" t-as="ing">
+                                                <div class="checkbox_item form-check-inline">
+                                                    <label>
+                                                        <input t-att-data-coefficient="ing['coefficient']" type="checkbox" class="form-check-input" t-att-value="ing['id']" name="ingredients"/><t t-esc="ing['name']"/>
+                                                    </label>
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="opt_form opt_other" style="display: none;">
+                                  <div class="form_ing">
+                                        <label class="control-label other_label text-uppercase">
+                                            Si autre(s), précisez ci-après<span class="control_req">*</span>
+                                        </label>
+                                    <div class="form_other">
+                                        <input type="text" name="other" class="form-control"/>
+                                    </div>
+                                    <label class="int-info">
+                                            Nous vous recontacterons s’il ne nous est pas possible de garantir la suppression de-s l’ingrédient-s mentionné-s.
+                                        </label>
+                                  </div>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_ur_sub text-center">
+                                        <label class="sub_label">
+                                            Votre Abonnement (CHF/MOIS)
+                                        </label>
+                                        <div class="sub_value">
+                                            <input class="monthly_amount" type='text' value="30" name="amount" style="display: none;"/>
+                                            <label class="monthly_amount value_label sub_value_label">0</label>
+                                        </div>
+                                        <div class="sub_footer">
+                                            <label class="sub_footer_label">
+                                                Les frais de livraison sont inclus.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="opt_footer">
+                                    <button current-id="3" class="btn btn-pre" type="button"> &lt;&lt; Previous Page
+                                    </button>
+                                    <button current-id="3" class="btn btn-next" type="button">Next Page >>
+                                    </button>
+                                    <div style="clear: both;"></div>
+                                </div>
+                            </div>
+                            <div class="page_4" style="display: none;">
+                                <div class="opt_header">
+                                    <h1 class="text-left form_title text-uppercase">Delivery mode</h1>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_order_dog">
+                                        <label class="control-label text-uppercase require">Est-Ce Le Seul Chien Pour Qui Vous Souhaitez Commander ?<span class="control_req">*</span></label>
+                                        <div class="form_radio">
+                                            <label class="radio_item radio-inline">
+                                                <input style="margin-right:5px;" type="radio" name="onlyorder" value="y" checked="checked"/>Yes
+                                            </label>
+                                            <label class="radio_item radio-inline">
+                                                <input style="margin-right:5px;" type="radio" name="onlyorder" value="n"/>No
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="lablel_radio label_info text-justify" style="display: none">
+                                        <label>
+                                            En cas de commande pour plusieurs chiens, nous les regrouperons afin qu'elles soient livrées en même temps et vous bénéficierez d'un rabais de CHF 8 par chien par livraison, dès le deuxième chien.
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_del_mode">
+                                        <label class="control-label text-uppercase require">JE Souhaite Être LIVRÉ<span class="control_req">*</span></label>
+                                        <div class="form_mode">
+                                            <select class="form-control"  name="delivered_to" id="del_mode">
+                                                <option value="">choisir un mode de livraison</option>
+                                                <option t-foreach="delivery_mode" t-as="mode" t-att-value="mode[0]">
+                                                    <t t-esc="mode[1]"/>
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="opt_form all_warehouse" style="display: none;">
+                                <div class="label_info text-justify">
+                                        <label>
+                                            Nous sommes situés à Bussigny, au 8 rue de l’Arc-en-ciel. Nous vous indiquerons à partir de quel jour votre commande est disponible et vous pourrez ensuite la récupérer en semaine, durant la journée.
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="opt_form all_partner">
+                                    <div class="form_partner">
+                                        <label class="control-label text-uppercase require">Choix DU Partenaire<span class="control_req">*</span></label>
+                                        <div class="form_partner_select">
+                                            <select class="form-control" name="delivered_partner" id="delivered_partner">
+                                                <option value="">choisir un point-retrait</option>
+                                                <t t-foreach="pickups" t-as="pickup">
+                                                    <option t-att-value="pickup.id">
+	                                                    <t t-if="pickup.company_name != false">
+	                                                    	<t t-esc="pickup.company_name"/>
+	                                                    </t>
+	                                                    <t t-else="">
+	                                                    	<t t-esc="pickup.name"/>
+	                                                    </t>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="map-responsive">
+                                    	<iframe src="https://www.google.com/maps/d/embed?mid=1sO4ii03F_CHk357bBzsA0v6V0Tg&amp;z=7" width="640" height="480"></iframe>
+                                	</div>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_fre">
+                                        <label class="control-label text-uppercase require all_partner all_warehouse" style="display: none;">Pickup frequency<span class="control_req">*</span></label>
+                                        <label class="control-label text-uppercase require all_home">Delivery frequency<span class="control_req">*</span></label>
+                                        <t t-foreach="delivery_frequency" t-as="fre">
+                                            <div>
+                                                <label class="control-text text-muted">
+                                                    <t t-if="delivery_frequency_default == fre[0]">
+                                                        <input type="radio" t-attf-name="fre_type" t-att-value="fre[0]" checked="checked"/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <input type="radio" t-attf-name="fre_type" t-att-value="fre[0]"/>
+                                                    </t>
+                                                    <t t-esc="fre[1]"/>
+                                                </label>
+                                            </div>
+                                        </t>
+                                        <label class="fre-info">
+                                            Pensez à la taille de votre congélateur afin de choisir une fréquence adaptée.
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_note">
+                                        <label class="control-label require">Note : veuillez remplir les champs marqués d'un <span class="control_req">*</span>.</label>
+                                    </div>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_ur_sub text-center">
+                                        <label class="sub_label">
+                                            Votre Abonnement (CHF/MOIS)
+                                        </label>
+                                        <div class="sub_value">
+                                            <label class="monthly_amount value_label sub_value_label" name="amount">0</label>
+                                        </div>
+                                        <div class="sub_footer">
+                                            <label class="sub_footer_label">
+                                                Les frais de livraison sont inclus.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="opt_footer">
+                                    <button current-id="4" class="btn btn-pre" type="button"> &lt;&lt; Previous Page
+                                    </button>
+                                    <button current-id="4" class="btn btn-next" type="button">Next Page >>
+                                    </button>
+                                    <div style="clear: both;"></div>
+                                </div>
+                            </div>
+                            <div class="page_5" style="display: none;">
+                                <div class="opt_header">
+                                    <h1 class="text-left form_title text-uppercase">Your Personal Info</h1>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="label_info text-justify">
+                                        <label>
+                                            Les réservations ne sont pas engageantes, elles nous permettent de connaitre vos besoins réels et vos attentes, ainsi que votre intérêt pour nos produits.
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_fullname">
+                                        <label class="control-label text-uppercase require">Your Name<span class="control_req">*</span></label>
+                                        <div class="input">
+                                            <div class="input_fname">
+                                                <input type="text" name="fname" class="form-control" required="true"/>
+                                                <label class="fname_label require">First Name</label>
+                                            </div>
+                                            <div class="input_name">
+                                                <input type="text" name="name" class="form-control" required="true"/>
+                                                <label class="name_label require">Name</label>
+                                            </div>
+                                            <div style="clear: both;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_email">
+                                        <label class="control-label text-uppercase require">Email<span class="control_req">*</span></label>
+                                        <input type="text" name="email" class="form-control" required="true"/>
+                                    </div>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_cemail">
+                                        <label class="control-label text-uppercase require">Confirm Email<span class="control_req">*</span></label>
+                                        <input type="text" name="cemail" class="form-control" required="true"/>
+                                    </div>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_phone">
+                                        <label class="control-label text-uppercase require">Phone<span class="control_req">*</span></label>
+                                        <input type="text" name="phone" class="form-control" required="true"/>
+                                    </div>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_address">
+                                        <label class="control-label text-uppercase require">Address<span class="control_req">*</span></label>
+                                        <input type="text" name="address" class="form-control" required="true"/>
+                                    </div>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_npa">
+                                        <label class="control-label text-uppercase require">NPA<span class="control_req">*</span></label>
+                                        <input type="text" name="npa" class="form-control" required="true"/>
+                                    </div>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_city">
+                                        <label class="control-label text-uppercase require">City<span class="control_req">*</span></label>
+                                        <input type="text" name="city" class="form-control" required="true"/>
+                                    </div>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_pay">
+                                        <label class="control-label text-uppercase require">Pays<span class="control_req">*</span></label>
+                                        <div>
+                                            <select class="form-control" name="pay">
+                                                <option value="swiss">Swiss</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_note">
+                                        <label class="control-label require">Note : veuillez remplir les champs marqués d'un <span class="control_req">*</span>.</label>
+                                    </div>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_remark">
+                                        <label class="control-label text-uppercase require">REMARQUES COMPLÉMENTAIRES</label>
+                                        <textarea class="form-control" rows="3" name="remark"></textarea>
+                                    </div>
+                                </div>
+                                <div class="opt_footer">
+                                    <button current-id="5" class="btn btn-pre" type="button"> &lt;&lt; Previous Page
+                                    </button>
+                                    <button current-id="5" class="btn btn-next" type="button">Next Page >>
+                                    </button>
+                                    <div style="clear: both;"></div>
+                                </div>
+                            </div>
+                            <div class="page_6" style="display: none;">
+                                <div class="opt_header">
+                                    <h1 class="text-left form_title text-uppercase">Commander</h1>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_ur_sub text-center">
+                                        <label class="sub_label">
+                                            Votre Abonnement (CHF/MOIS)
+                                        </label>
+                                        <div class="sub_value">
+                                            <label class="monthly_amount value_label sub_value_label" name="amount">0</label>
+                                        </div>
+                                        <div class="sub_footer">
+                                            <label class="sub_footer_label">
+                                                Les frais de livraison sont inclus.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_advise">
+                                        <label class="control-label text-uppercase require">Babarf vous a été conseillé par un de nos prescripteurs ?<span class="control_req">*</span></label>
+                                        <div class="form_radio">
+                                            <label class="radio_item radio-inline">
+                                                <input style="margin-right:5px;" type="radio" name="is_advice" value="y"/>Yes
+                                            </label>
+                                            <label class="radio_item radio-inline">
+                                                <input style="margin-right:5px;" type="radio" name="is_advice" value="n" checked="checked"/>No
+                                            </label>
+                                        </div>
+                                        <div class="form_partner" style="display: none;">
+                                            <div class="form_partner_select">
+                                                <select class="form-control" name="advice_partner">
+                                                    <t t-foreach="partners" t-as="partner">
+                                                        <option t-att-value="partner.id"><t t-esc="partner.display_name"/></option>
+                                                    </t>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_news">
+                                        <div class="checkbox_item form-check-inline">
+                                            <label>
+                                                <input type="checkbox" name="newsletter" class="form-check-input" value="ing" checked="True" />Je souhaite m'inscrire à la newsletter afin de recevoir les dernières actualités Babarf
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="opt_form">
+                                    <div class="form_checkbox_confirm">
+                                        <div class="checkbox_item form-check-inline">
+                                            <label>
+                                                <input type="checkbox" name="confirm_checkbox" class="form-check-input" value="ing"/>J'accepte les conditions générales de vente<span class="control_req">*</span>
+                                            </label>
+                                        </div>
+                                        <div class="link">
+                                            <a href="http://www.babarf.ch/conditions-generales-de-vente/" target="_blank"><u>Lire les conditions générales</u></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="opt_footer">
+                                    <button current-id="6" class="btn btn-pre" type="button"> &lt;&lt; Previous Page
+                                    </button>
+                                    <button class="btn btn-submit" type="submit">Submit
+                                    </button>
+                                    <div style="clear: both;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="kolyna_icon">
+                        <img src="/kolyna_theme/static/src/img/logos/02_logo.PNG" height="180px" width="180px" alt=""/>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

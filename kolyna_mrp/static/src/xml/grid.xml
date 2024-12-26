@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates>
+    <t t-name="productionSchedulerGrid">
+        <div class="o_form_view">
+            <div class="page o_form_sheet_bg" style="padding:10px;">
+                <div class="o_form_sheet" style="max-width:initial">
+                    <div class="h2">Production Scheduler</div>
+                    <table class="table table-responsive table-sm mps_table">
+                        <thead>
+                            <tr class="table-active">
+                                <td style="width:25% !important; vertical-align:bottom; font-size:1.2em;">
+                                    <input type="checkbox" name="all_dog" id="all_dog" class="o_dog_select_all form-control-input ml4"/>
+                                    <label for="all_dog">Select all</label>
+                                </td>
+                                <t t-foreach="widget.products" t-as="product" class="text-center">
+                                    <th>
+                                        <t t-esc="product[1]"/>
+                                    </th>
+                                </t>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="widget.dogs" t-as="dog">
+                                <tr>
+                                    <td style="background-color: #875A7B; color: white; font-size: 15px;">
+                                        <input t-att-data-dog="dog[0]" t-attf-id="dog_row_#{dog[0]}" type="checkbox" class="o_dog_row_checkbox form-control-input"/>
+                                        <label style="cursor: pointer" t-attf-for="dog_row_#{dog[0]}">
+                                            <t t-esc="dog[1]"/> - <t t-esc="dog[2]"/> - <t t-esc="dog[5]"/> g<br /><t t-if="dog[3]" t-esc="dog[3]"/><t t-if="dog[4]"><br /><t t-esc="dog[4]"/></t>
+                                        </label>
+                                    </td>
+                                    <t t-foreach="widget.products" t-as="product">
+                                        <td>
+                                            <input t-att-data-dog="dog[0]" t-att-data-product="product[0]" t-att-value="widget.matrix[dog[0]] and widget.matrix[dog[0]][product[0]] || 0" type="number" name="ration" style="background-color: #fffdbb" class="text-right o_psg_save_input_text"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="PSG.Buttons">
+        <button type="button save_psg"  data-createmo="false" class="btn btn-primary oe_createmo">Save</button>
+        <button type="button" data-createmo="true" class="btn btn-primary schedule">Schedule the production</button>
+        <button type="button" class="btn btn-primary attribute_menu d-none">Attribute the menus</button>
+    </t>
+
+    <t t-name="PSG.optionButton">
+        <div class="o_dropdown dropdown o_dog_group_filter">
+            <a type="button" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="fa fa-filter"/>
+                Dog Group:
+            </a>
+            <div class="dropdown-menu" role="menu">
+                <div class="o_filters_menu">
+                    <a role="menuitem" data-value="all" t-attf-class="all_group dropdown-item #{selected_group === 'all' and ' selected' or ' '}">All Group</a>
+                    <hr/>
+                    <t t-foreach="groups" t-as="group">
+                        <a role="menuitem" t-att-data-value="group['id']" t-attf-class="group dropdown-item #{_.contains(selected_group,group['id']) and ' selected' or ' '}"><t t-esc="group['name']"/></a>
+                    </t>
+                </div>
+                <hr/>
+                <div style="padding: 0.25rem 0.55rem;">
+                    <b>Bag Size</b>
+                    <select name="bag_size">
+                        <option value="" selected="false">-- Select Bag Size --</option>
+                        <t t-foreach="bag_sizes" t-as="bag_size">
+                            <t t-if="bag_size['id'] == selected_bag_size">
+                                <option t-att-value="bag_size['id']" selected="true">
+                                    <t t-esc="bag_size['name']"/>
+                                </option>
+                            </t>
+                            <t t-else="">
+                                <option t-att-value="bag_size['id']">
+                                    <t t-esc="bag_size['name']"/>
+                                </option>
+                            </t>
+                        </t>
+                    </select>
+                    <b>Piece Size</b>
+                    <select name="piece_size">
+                        <option value="" selected="false">-- Select Piece Size --</option>
+                        <t t-foreach="piece_sizes" t-as="piece_size">
+                            <t t-if="piece_size['id'] == selected_piece_size">
+                                <option t-att-value="piece_size['id']" selected="true">
+                                    <t t-esc="piece_size['name']"/>
+                                </option>
+                            </t>
+                            <t t-else="">
+                                <option t-att-value="piece_size['id']">
+                                    <t t-esc="piece_size['name']"/>
+                                </option>
+                            </t>
+                        </t>
+                    </select>
+                    <hr/>
+                    <button type="button" class="mt8 btn btn-primary js_apply_filter" data-filter="custom">Apply</button>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t  t-name="AttributeMenuDialog">
+        <table class="table table-responsive table-sm mps_table">
+            <thead>
+                <tr class="table-active">
+                    <t t-foreach="widget.products" t-as="product" class="text-center">
+                        <th>
+                            <t t-esc="product[1]"/>
+                        </th>
+                    </t>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <t t-foreach="widget.products" t-as="product" class="text-center">
+                        <td>
+                            <input t-att-data-product="product[0]" value="0" type="number" name="ration" style="background-color: #fffdbb" class="text-right"/>
+                        </td>
+                    </t>
+                </tr>
+            </tbody>
+        </table>
+    </t>
+
+    <t t-name="RationTrackers">
+        <div class="o_form_view">
+            <div class="page o_form_sheet_bg" style="padding:10px;">
+                <div class="o_form_sheet" style="max-width:initial">
+                    <div class="h2">Ration Trackers</div>
+                    <table class="table table-responsive table-sm mps_ration_table">
+                        <thead>
+                            <tr class="table-active">
+                                <th>
+                                </th>
+                                <t t-foreach="widget.days" t-as="day" class="text-center">
+                                    <th>
+                                        <t t-esc="day"/>
+                                    </th>
+                                </t>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="widget.dogs" t-as="dog">
+                                <tr>
+                                    <td>
+                                        <strong><t t-esc="dog[1]"/> - <t t-esc="dog[2]"/></strong>
+                                    </td>
+                                    <t t-foreach="widget.days" t-as="day">
+                                        <td>
+                                            <t t-esc="widget.matrix[dog[0]] and widget.matrix[dog[0]][day] || 0"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="RationTrackersSummary">
+        <div class="o_form_view">
+            <div class="page o_form_sheet_bg" style="padding:10px;">
+                <div class="o_form_sheet" style="max-width:initial">
+                    <div class="h2">Ration Trackers Summary</div>
+                    <table class="table table-responsive table-sm mps_ration_table">
+                        <thead>
+                            <tr class="table-active">
+                                <th style="min-width:150px;">Dog Name</th>
+                                <th>Dog ID</th>
+                                <th>Dog Owner</th>
+                                <th>First Delivery</th>
+                                <th>Expedition Group</th>
+                                <th>Delivery frequency</th>
+                                <th>Stock at Kolyna</th>
+                                <th>Stock at Client</th>
+                                <th>Next Delivery Date</th>
+                                <th>Stock at Next Delivery Date</th>
+                                <th>Stock at Before Next Delivery</th>
+                                <th>Remaining Rations</th>
+                                <th>Remaining Days Left</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="widget.dogs" t-as="dog">
+                                <tr>
+                                    <td><t t-esc="dog['dogName']"/></td>
+                                    <td><t t-esc="dog['dogID']"/></td>
+                                    <td><t t-esc="dog['ownerName']"/></td>
+                                    <td><t t-esc="dog['firstDelivery']"/></td>
+                                    <td><t t-esc="dog['expeditionGroup']"/></td>
+                                    <td><t t-esc="dog['deliveryFrequency']"/></td>
+                                    <td><t t-esc="dog['stockAtKolyna']"/></td>
+                                    <td><t t-esc="dog['stockAtClient']"/></td>
+                                    <td><t t-esc="dog['nextDeliveryDate']"/></td>
+                                    <td><t t-esc="dog['stockAtNextDD']"/></td>
+                                    <td><t t-esc="dog['stockAtNextDDBefore']"/></td>
+                                    <td><t t-esc="dog['remainingRations']"/></td>
+                                    <td><t t-esc="dog['remainingDays']"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="RationTrackerFilter">
+        <div class="o_dropdown dropdown o_dog_group_filter">
+            <a type="button" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="fa fa-filter"/>
+                Filter
+            </a>
+            <div class="dropdown-menu" role="menu">
+                <div class="o_filters_menu">
+                    <a role="menuitem" data-value="ration_negative" t-attf-class="group dropdown-item #{_.contains(selected_filter, 'ration_negative') and ' selected' or ' '}">Ration Stock Negative</a>
+                    <a role="menuitem" data-value="less_days_to_produce" t-attf-class="group dropdown-item #{_.contains(selected_filter, 'less_days_to_produce')and ' selected' or ' '}">Less Day To Produce</a>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

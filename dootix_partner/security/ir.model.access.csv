@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_dog,res.dog,model_res_dog,,1,1,1,1
+access_res_dog_intolerance,res.dog.intolerance,model_res_dog_intolerance,,1,1,1,1
+access_dog_group_user,dog.group.user,model_dog_group,base.group_user,1,1,1,1
+access_dog_expedition_user,dog.expedition.user,model_dog_expedition,base.group_user,1,1,1,1
+access_dog_bagsize_user,dog.bagsize.user,model_dog_bagsize,base.group_user,1,1,1,1
+access_dog_piecesize_user,dog.piecesize.user,model_dog_piecesize,base.group_user,1,1,1,1
+access_customer_status_user,customer.status.user,model_customer_status,base.group_user,1,1,1,1

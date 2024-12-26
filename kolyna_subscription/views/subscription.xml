@@ -1,0 +1,18 @@
+<odoo>
+    <record id="view_sale_subscription_form_inherit_account_invoice" model="ir.ui.view">
+        <field name="name">sale.subscription.form.inherit.account.invoice</field>
+        <field name="model">sale.subscription</field>
+        <field name="inherit_id" ref="sale_subscription.sale_subscription_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_start']" position="after">
+                <field name="payment_term_id"/>
+            </xpath>
+            <xpath expr="//field[@name='stage_id']" position="attributes">
+                <attribute name="options">{'clickable': '1'}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="dog_ids" widget="many2many_tags"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,489 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* kolyna_mrp
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-29 14:07+0000\n"
+"PO-Revision-Date: 2020-01-29 15:08+0100\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: fr\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: kolyna_mrp
+#. openerp-web
+#: code:addons/kolyna_mrp/static/src/xml/grid.xml:71
+#, python-format
+msgid "-- Select Bag Size --"
+msgstr "-- Taille de sachet --"
+
+#. module: kolyna_mrp
+#. openerp-web
+#: code:addons/kolyna_mrp/static/src/xml/grid.xml:87
+#, python-format
+msgid "-- Select Piece Size --"
+msgstr "-- Taille de morceau --"
+
+#. module: kolyna_mrp
+#. openerp-web
+#: code:addons/kolyna_mrp/static/src/xml/grid.xml:62
+#, python-format
+msgid "All Group"
+msgstr "Tous les groupes"
+
+#. module: kolyna_mrp
+#: model_terms:ir.ui.view,arch_db:kolyna_mrp.view_mrp_production_plan_lines_search
+msgid "Already performed"
+msgstr "Déjà produit"
+
+#. module: kolyna_mrp
+#. openerp-web
+#: code:addons/kolyna_mrp/static/src/js/grid.js:170
+#: code:addons/kolyna_mrp/static/src/xml/grid.xml:101
+#, python-format
+msgid "Apply"
+msgstr "Appliquer"
+
+#. module: kolyna_mrp
+#. openerp-web
+#: code:addons/kolyna_mrp/static/src/js/grid.js:166
+#, python-format
+msgid "Attribute The Menu "
+msgstr "Attribuer le menu"
+
+#. module: kolyna_mrp
+#. openerp-web
+#: code:addons/kolyna_mrp/static/src/xml/grid.xml:51
+#, python-format
+msgid "Attribute the menus"
+msgstr "Attribuer les menus"
+
+#. module: kolyna_mrp
+#. openerp-web
+#: code:addons/kolyna_mrp/static/src/xml/grid.xml:69
+#, python-format
+msgid "Bag Size"
+msgstr "Taille de sachet"
+
+#. module: kolyna_mrp
+#: code:addons/kolyna_mrp/controllers/main.py:149
+#: code:addons/kolyna_mrp/controllers/main.py:216
+#, python-format
+msgid "Can not find BoM for '%s' product!"
+msgstr ""
+
+#. module: kolyna_mrp
+#. openerp-web
+#: code:addons/kolyna_mrp/static/src/js/grid.js:190
+#, python-format
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan__user_id
+msgid "Created By"
+msgstr "Créé par"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan__create_uid
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan__create_date
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan__date
+msgid "Date"
+msgstr "Date "
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan__display_name
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__dog_id
+msgid "Dog"
+msgstr "Chien"
+
+#. module: kolyna_mrp
+#. openerp-web
+#: code:addons/kolyna_mrp/static/src/xml/grid.xml:57
+#, python-format
+msgid "Dog Group:"
+msgstr "Groupe :"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan__id
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__id
+msgid "ID"
+msgstr ""
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__ingredient_1
+msgid "Ingredient 1"
+msgstr "Ingr. 1"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__ingredient_2
+msgid "Ingredient 2"
+msgstr "Ingr. 2"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__ingredient_3
+msgid "Ingredient 3"
+msgstr "Ingr. 3"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__ingredient_4
+msgid "Ingredient 4"
+msgstr "Ingr. 4"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__ingredient_5
+msgid "Ingredient 5"
+msgstr "Ingr. 5"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__ingredient_6
+msgid "Ingredient 6"
+msgstr "Ingr. 6"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__ingredient_7
+msgid "Ingredient 7"
+msgstr "Ingr. 7"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__ingredient_8
+msgid "Ingredient 8"
+msgstr "Ingr. 8"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__ingredient_name_1
+msgid "Ingredient Name 1"
+msgstr ""
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__ingredient_name_2
+msgid "Ingredient Name 2"
+msgstr ""
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__ingredient_name_3
+msgid "Ingredient Name 3"
+msgstr ""
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__ingredient_name_4
+msgid "Ingredient Name 4"
+msgstr ""
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__ingredient_name_5
+msgid "Ingredient Name 5"
+msgstr ""
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__ingredient_name_6
+msgid "Ingredient Name 6"
+msgstr ""
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__ingredient_name_7
+msgid "Ingredient Name 7"
+msgstr ""
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__ingredient_name_8
+msgid "Ingredient Name 8"
+msgstr ""
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan____last_update
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan__write_uid
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan__write_date
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan__plan_line_ids
+msgid "Lines"
+msgstr "Lignes"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__lot_id
+msgid "Lot"
+msgstr ""
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__dog_name
+msgid "Name"
+msgstr "Nom"
+
+#. module: kolyna_mrp
+#: model_terms:ir.ui.view,arch_db:kolyna_mrp.view_mrp_production_plan_lines_search
+msgid "Not already performed"
+msgstr "Pas encore produit"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__note_1
+msgid "Note 1"
+msgstr ""
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__note_2
+msgid "Note 2"
+msgstr ""
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__note_3
+msgid "Note 3"
+msgstr ""
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__note_4
+msgid "Note 4"
+msgstr ""
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__note_5
+msgid "Note 5"
+msgstr ""
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__note_6
+msgid "Note 6"
+msgstr ""
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__note_7
+msgid "Note 7"
+msgstr ""
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__note_8
+msgid "Note 8"
+msgstr ""
+
+#. module: kolyna_mrp
+#. openerp-web
+#: code:addons/kolyna_mrp/static/src/xml/grid.xml:85
+#, python-format
+msgid "Piece Size"
+msgstr "Taille de morceau"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__plan_id
+msgid "Plan"
+msgstr "Plan de production"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__product_id
+msgid "Product"
+msgstr "Article"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__product_name
+msgid "Product name"
+msgstr ""
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__date
+msgid "Production Date"
+msgstr "Date de production"
+
+#. module: kolyna_mrp
+#: model:ir.actions.act_window,name:kolyna_mrp.action_production_plan
+#: model:ir.model,name:kolyna_mrp.model_mrp_production_plan
+#: model:ir.ui.menu,name:kolyna_mrp.menu_production_plan_root
+#: model_terms:ir.ui.view,arch_db:kolyna_mrp.view_mrp_production_plan_form
+#: model_terms:ir.ui.view,arch_db:kolyna_mrp.view_mrp_production_plan_tree
+msgid "Production Plan"
+msgstr "Plan de production"
+
+#. module: kolyna_mrp
+#: model_terms:ir.ui.view,arch_db:kolyna_mrp.view_mrp_production_plan_lines_tree
+msgid "Production Plan Line"
+msgstr "Ligne du plan de production"
+
+#. module: kolyna_mrp
+#: model:ir.model,name:kolyna_mrp.model_mrp_production_plan_line
+msgid "Production Plan Lines"
+msgstr "Lignes du plan de production"
+
+#. module: kolyna_mrp
+#: code:addons/kolyna_mrp/controllers/main.py:128
+#, python-format
+msgid "Production Plan and Manufacturing Order were                     created successfully!"
+msgstr "Le plan de production et l’ordre de production ont été                     créés avec succès!"
+
+#. module: kolyna_mrp
+#. openerp-web
+#: code:addons/kolyna_mrp/static/src/xml/grid.xml:8
+#: model:ir.actions.client,name:kolyna_mrp.mrp_production_scheduler_grid_client
+#, python-format
+msgid "Production Scheduler"
+msgstr "Planificateur de production"
+
+#. module: kolyna_mrp
+#: model_terms:ir.ui.view,arch_db:kolyna_mrp.view_mrp_production_plan_lines_search
+msgid "Production lines"
+msgstr "Lignes de production"
+
+#. module: kolyna_mrp
+#: model_terms:ir.ui.view,arch_db:kolyna_mrp.view_mrp_production_plan_form
+msgid "Ration"
+msgstr ""
+
+#. module: kolyna_mrp
+#: model:ir.actions.act_window,name:kolyna_mrp.action_production_plan_lines
+#: model:ir.ui.menu,name:kolyna_mrp.menu_production_plan_lines_root
+msgid "Rations"
+msgstr ""
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__real_total_weight
+msgid "Real Total Weight"
+msgstr "Poids total réel"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__real_weight_1
+msgid "Real Weight 1"
+msgstr "Pds réel 1"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__real_weight_2
+msgid "Real Weight 2"
+msgstr "Pds réel 2"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__real_weight_3
+msgid "Real Weight 3"
+msgstr "Pds réel 3"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__real_weight_4
+msgid "Real Weight 4"
+msgstr "Pds réel 4"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__real_weight_5
+msgid "Real Weight 5"
+msgstr "Pds réel 5"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__real_weight_6
+msgid "Real Weight 6"
+msgstr "Pds réel 6"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__real_weight_7
+msgid "Real Weight 7"
+msgstr "Pds réel 7"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__real_weight_8
+msgid "Real Weight 8"
+msgstr "Pds réel 8"
+
+#. module: kolyna_mrp
+#. openerp-web
+#: code:addons/kolyna_mrp/static/src/xml/grid.xml:49
+#, python-format
+msgid "Save"
+msgstr "Sauver"
+
+#. module: kolyna_mrp
+#: model:ir.ui.menu,name:kolyna_mrp.mrp_schedule_production
+msgid "Schedule a production"
+msgstr "Planifier une production"
+
+#. module: kolyna_mrp
+#. openerp-web
+#: code:addons/kolyna_mrp/static/src/xml/grid.xml:50
+#, python-format
+msgid "Schedule the production"
+msgstr "Planifier la production"
+
+#. module: kolyna_mrp
+#. openerp-web
+#: code:addons/kolyna_mrp/static/src/xml/grid.xml:15
+#, python-format
+msgid "Select all"
+msgstr "Tout sélectionner"
+
+#. module: kolyna_mrp
+#: code:addons/kolyna_mrp/controllers/main.py:119
+#, python-format
+msgid "Successfully Saved!"
+msgstr "Enregistré avec succès!"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__total_weight
+msgid "Total Weight"
+msgstr "Poids total"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__ingredient_weight_1
+msgid "Weight 1"
+msgstr "Poids 1"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__ingredient_weight_2
+msgid "Weight 2"
+msgstr "Poids 2"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__ingredient_weight_3
+msgid "Weight 3"
+msgstr "Poids 3"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__ingredient_weight_4
+msgid "Weight 4"
+msgstr "Poids 4"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__ingredient_weight_5
+msgid "Weight 5"
+msgstr "Poids 5"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__ingredient_weight_6
+msgid "Weight 6"
+msgstr "Poids 6"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__ingredient_weight_7
+msgid "Weight 7"
+msgstr "Poids 7"
+
+#. module: kolyna_mrp
+#: model:ir.model.fields,field_description:kolyna_mrp.field_mrp_production_plan_line__ingredient_weight_8
+msgid "Weight 8"
+msgstr "Poids 8"

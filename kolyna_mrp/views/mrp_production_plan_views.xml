@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_mrp_production_plan_tree" model="ir.ui.view">
+        <field name="name">mrp.production.plan.tree</field>
+        <field name="model">mrp.production.plan</field>
+        <field name="arch" type="xml">
+            <tree string="Production Plan">
+                <field name="date"/>
+                <field name="user_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_mrp_production_plan_form" model="ir.ui.view">
+        <field name="name">mrp.production.plan.form</field>
+        <field name="model">mrp.production.plan</field>
+        <field name="arch" type="xml">
+            <form string="Production Plan">
+                    <group>
+                        <group>
+                            <field name="user_id" required="1"/>    
+                            <field name="date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Ration">
+                            <group>
+                                <field name="plan_line_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="plan_id" invisible="1"/>
+                                        <field name="dog_id" required="1"/>
+                                        <field name="product_id" required="1"/>
+                                        <field name="date"/>
+                                        <field name="total_weight"/>
+                                        <field name="real_total_weight"/>
+                                        <field name="ingredient_1"/>
+                                        <field name="ingredient_weight_1"/>
+                                        <field name="real_weight_1"/>
+                                        <field name="ingredient_2"/>
+                                        <field name="ingredient_weight_2"/>
+                                        <field name="real_weight_2"/>
+                                        <field name="ingredient_3"/>
+                                        <field name="ingredient_weight_3"/>
+                                        <field name="real_weight_3"/>
+                                        <field name="ingredient_4"/>
+                                        <field name="ingredient_weight_4"/>
+                                        <field name="real_weight_4"/>
+                                        <field name="real_total_weight"/>
+                                        <field name="lot_id"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                    </notebook>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_production_plan" model="ir.actions.act_window">
+        <field name="name">Production Plan</field>
+        <field name="res_model">mrp.production.plan</field>
+        <field name="view_mode">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="menu_production_plan_root"
+        action="action_production_plan"
+        parent="mrp.mrp_planning_menu_root"
+        sequence="10"
+    />
+
+    <record id="view_mrp_production_plan_lines_tree" model="ir.ui.view">
+        <field name="name">mrp.production.plan.line.tree</field>
+        <field name="model">mrp.production.plan.line</field>
+        <field name="arch" type="xml">
+            <tree string="Production Plan Line">
+                <field name="dog_id"/>
+                <field name="product_id"/>
+                <field name="date"/>
+                <field name="real_total_weight"/>
+                <field name="ingredient_name_1"/>
+                <field name="ingredient_weight_1"/>
+                <field name="real_weight_1"/>
+                <field name="ingredient_name_2"/>
+                <field name="ingredient_weight_2"/>
+                <field name="real_weight_2"/>
+                <field name="ingredient_name_3"/>
+                <field name="ingredient_weight_3"/>
+                <field name="real_weight_3"/>
+                <field name="ingredient_name_4"/>
+                <field name="ingredient_weight_4"/>
+                <field name="real_weight_4"/>
+                <field name="create_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_mrp_production_plan_line_form" model="ir.ui.view">
+        <field name="name">mrp.production.plan.line.form</field>
+        <field name="model">mrp.production.plan.line</field>
+        <field name="arch" type="xml">
+            <form string="Ration">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="plan_id"/>
+                            <field name="dog_id"/>
+                            <field name="dog_name"/>
+                            <field name="total_weight"/>
+                        </group>
+                        <group>
+                            <field name="product_id"/>
+                            <field name="product_name"/>
+                            <field name="lot_id"/>
+                            <field name="total_weight"/>
+                        </group>
+                        <group string="Ingredients">
+                            <field name="ingredient_1"/>
+                            <field name="ingredient_2"/>
+                            <field name="ingredient_3"/>
+                            <field name="ingredient_4"/>
+                            <field name="ingredient_5"/>
+                            <field name="ingredient_6"/>
+                            <field name="ingredient_7"/>
+                            <field name="ingredient_8"/>
+                        </group>
+                        <group string="Ingredients Names">
+                            <field name="ingredient_name_1"/>
+                            <field name="ingredient_name_2"/>
+                            <field name="ingredient_name_3"/>
+                            <field name="ingredient_name_4"/>
+                            <field name="ingredient_name_5"/>
+                            <field name="ingredient_name_6"/>
+                            <field name="ingredient_name_7"/>
+                            <field name="ingredient_name_8"/>
+                        </group>
+
+                        <group string="Ingredients Weights">
+                            <field name="ingredient_weight_1"/>
+                            <field name="ingredient_weight_2"/>
+                            <field name="ingredient_weight_3"/>
+                            <field name="ingredient_weight_4"/>
+                            <field name="ingredient_weight_5"/>
+                            <field name="ingredient_weight_6"/>
+                            <field name="ingredient_weight_7"/>
+                            <field name="ingredient_weight_8"/>
+                        </group>
+                        <group string="Real Weights">
+                            <field name="real_weight_1"/>
+                            <field name="real_weight_2"/>
+                            <field name="real_weight_3"/>
+                            <field name="real_weight_4"/>
+                            <field name="real_weight_5"/>
+                            <field name="real_weight_6"/>
+                            <field name="real_weight_7"/>
+                            <field name="real_weight_8"/>
+                            <field name="real_total_weight"/>
+                        </group>
+
+                        <group string="Notes">
+                            <field name="note_1"/>
+                            <field name="note_2"/>
+                            <field name="note_3"/>
+                            <field name="note_4"/>
+                            <field name="note_5"/>
+                            <field name="note_6"/>
+                            <field name="note_7"/>
+                            <field name="note_8"/>
+                        </group>
+                        <group string="Lots">
+                            <field name="lot_1"/>
+                            <field name="lot_2"/>
+                            <field name="lot_3"/>
+                            <field name="lot_4"/>
+                            <field name="lot_5"/>
+                            <field name="lot_6"/>
+                            <field name="lot_7"/>
+                            <field name="lot_8"/>
+                        </group>
+
+                        <group string="Dates">
+                            <field name="date"/>
+                            <field name="packaging_date"/>
+                            <field name="delivery_date"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    
+    <record id="view_mrp_production_plan_lines_search" model="ir.ui.view">
+	    <field name="name">mrp.production.plan.line..search</field>
+	    <field name="model">mrp.production.plan.line</field>
+	    <field name="arch" type="xml">
+	        <search string="Production lines">
+                 <field name="dog_id"/>
+                 <field name="product_id"/>
+	            <!--<filter string="give any string name" name="filter_name" domain="[pass the condition]"/> -->            
+	            <filter string="Already performed" name="weight_set" domain="[('date','!=', False)]"/>
+	            <filter string="Not already performed" name="weight_notset" domain="[('date','=', False)]"/>
+	        </search>
+	    </field>
+	</record>
+
+    <record id="action_production_plan_lines" model="ir.actions.act_window">
+        <field name="name">Rations</field>
+        <field name="res_model">mrp.production.plan.line</field>
+        <field name="view_mode">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_mrp_production_plan_lines_tree"/>
+        <field name="context">{'search_default_weight_notset':1}</field>
+    </record>
+
+    <menuitem
+        id="menu_production_plan_lines_root"
+        action="action_production_plan_lines"
+        parent="mrp.mrp_planning_menu_root"
+        sequence="15"
+    />
+</odoo>

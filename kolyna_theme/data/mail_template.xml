@@ -1,0 +1,89 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+        <!--Email template -->
+        <record id="email_template_dog" model="mail.template">
+            <field name="name">Dog: Send Dog Information</field>
+            <field name="model_id" ref="dootix_partner.model_res_dog"/>
+            <field name="email_from">info@babarf.ch</field>
+            <field name="partner_to">{{ object.owner.id }}</field>
+            <field name="subject">Babarf - Votre pré-commande</field>
+            <field name="body_html" type="html">
+<div style="margin: 0px; padding: 0px;">
+    <h3>
+        <!-- Bonjour <t t-out="object.owner.first_name"/> <t t-out="object.owner.last_name"/> -->
+        Bonjour <t t-out="object.owner.name"/>
+    </h3>
+    <p>Nous avons bien reçu votre pré-commande pour <t t-out="object.name"/>.</p>
+    <p>Nous sommes en phase de lancement et ne sommes donc pas encore en mesure de livrer tous nos clients : il faut compter entre 1 et 4 mois pour la première livraison, en fonction de l'offre désirée.</p>
+    <p>Nous vous contacterons donc rapidement afin de convenir avec vous d'un délai plus précis en fonction de nos possibilités :-)</p>
+    <p>Dans l'intervalle, n’hésitez pas à suivre l'avancée de notre projet via les pages suivantes:</p>
+    <p>
+        <a href="https://www.babarf.ch/news/">Les news</a><br />
+        <a href="https://www.facebook.com/babarf.ch">Facebook</a><br />
+        <a href="https://www.instagram.com/babarf_ch/">Instagram</a><br /><br />
+        À bientôt !
+    </p>
+    <p>La Team Babarf</p>
+    <p><center><img src="https://www.babarf.ch/wp-content/uploads/2019/05/LOGO-2663px.png" width="200px" /></center></p>
+    <p>
+        <strong>Voici un résumé de votre abonnement pour <t t-out="object.name"/>:</strong><br /><br />
+        Numéro de client : <t t-out="object.owner.id"/><br />
+        Ration quotidienne : <t t-out="object.daily_ration_g"/> grammes<br />
+        Offre choisie :
+            <t t-if="object.offer == 's'">
+                Standard
+            </t>
+            <t t-if="object.offer == 'sp'">
+                Swiss Preimum
+            </t>
+            <t t-if="object.offer == 'p'">
+                Premium
+            </t>
+            <br />
+
+        Ingrédients nons désirés: 
+            <t t-foreach="object.intolerances_ids" t-as="intolerance">
+                <t t-out="intolerance.name"/>,
+            </t>
+            <br />
+            Mode de livraison: 
+            <t t-if="object.delivery_mode == 'home'">
+                A domicile
+            </t>
+            <t t-if="object.delivery_mode == 'pickup'">
+                Chez un partenaire Babarf
+            </t>
+            <t t-if="object.delivery_mode == 'warehouse'">
+                Retrait à l’entrepôt
+            </t>
+            <br />
+
+        Fréquence des livraisons:
+            <t t-if="object.delivery_frequency == 'monthly'">
+                Mensuelle
+            </t>
+            <t t-if="object.delivery_mode == 'bi-monthly'">
+                Bi-mensuelle
+            </t>
+            <t t-if="object.delivery_mode == 'weekly'">
+                Hebdomadaire
+            </t>
+            <br />
+        Point retrait sélectionné (si applicable): <t t-out="object.pickup_point.company_name or object.pickup_point.name or ''"/><br />
+        Remarques complémentaires: <t t-out="object.remark or ''"/><br /><br />
+        Vos coordonnées :<br />
+            <!-- <t t-out="object.owner.first_name"/> <t t-out="object.owner.last_name"/><br /> -->d
+            <t t-out="object.owner.street"/> - <t t-out="object.owner.zip"/> - <t t-out="object.owner.city"/><br />
+            <t t-out="object.owner.phone"/><br /><br />
+         Coût mensuel total: <t t-out="object.amount"/> CHF
+    </p>
+
+</div>
+            </field>
+            <field name="lang">{{ object.owner.lang }}</field>
+            <!-- <field name="user_signature" eval="False"/> -->
+            <field name="auto_delete" eval="True"/>
+        </record>
+    </data>
+</odoo>

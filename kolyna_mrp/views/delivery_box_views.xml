@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_delivery_box_tree" model="ir.ui.view">
+            <field name="name">delivery.box.tree</field>
+            <field name="model">delivery.box</field>
+            <field name="arch" type="xml">
+                <tree string="Delivery Boxes">
+                    <field name="name"/>
+                    <field name="packaging_date"/>
+                    <field name="delivery_date"/>
+                    <field name="number_of_rations"/>
+                    <field name="barcode"/>
+                    <field name="dog_id"/>
+                    <field name="delivery_address_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_delivery_box_form" model="ir.ui.view">
+            <field name="name">delivery.box.form</field>
+            <field name="model">delivery.box</field>
+            <field name="arch" type="xml">  
+                <form string="Delivery Box">
+                    <header>
+                        <button name="action_packaged" type="object" string='Mark As Packaged' states="new,delivered" class="oe_highlight"/>
+                        <button name="action_delivered" type="object" string='Mark As Delivered' states="new,packaged" class="oe_highlight"/>
+                        <button name="action_new" type="object" string='Set to Draft' states="delivered,packaged"/>
+                        <field name="state" widget="statusbar" statusbar_visible="new,packaged,delivered"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" placeholder="Name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="expected_delivery_date"/>
+                                <field name="packaging_date"/>
+                                <field name="delivery_date"/>
+                            </group>
+                            <group>
+                                <field name="number_of_rations"/>
+                                <field name="barcode"/>
+                                <field name="dog_id"/>
+                                <field name="delivery_address_id"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string='Rations'>
+                                <field name="ration_ids" nolabel="1" domain="[('dog_id', '=', dog_id)]" context="{'search_default_weight_set': 1}"/>
+                            </page>
+                        </notebook>
+                      </sheet>
+                      <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_delivery_box" model="ir.actions.act_window">
+            <field name="name">Delivery Boxes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">delivery.box</field>
+            <field name="view_mode">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Create a new delivery box
+              </p>
+            </field>
+        </record>
+        
+        <menuitem id="menu_delivery_box"
+            name="Delivery Boxes"
+            action="action_delivery_box"
+            parent="mrp.mrp_planning_menu_root"
+            sequence="25"/>
+            
+
+        <record id="mrp_production_ration_tracker" model="ir.actions.client">
+            <field name="name">Rations Tracker</field>
+            <field name="tag">ration_tracker</field>
+        </record>
+
+        <menuitem id="mrp_rations_tracker"
+            name="Rations Tracker"
+            action="mrp_production_ration_tracker"
+            sequence="6"
+            parent="mrp.mrp_planning_menu_root"/>
+
+        <record id="mrp_production_ration_tracker_summary" model="ir.actions.client">
+            <field name="name">Rations Tracker Summary</field>
+            <field name="tag">ration_tracker_summary</field>
+        </record>
+
+        <!--<menuitem id="mrp_rations_tracker_summary"-->
+        <!--    name="Rations Tracker Summary"-->
+        <!--    action="mrp_production_ration_tracker_summary"-->
+        <!--    sequence="7"-->
+        <!--    parent="mrp.mrp_planning_menu_root"/>-->
+    </data>
+</odoo>

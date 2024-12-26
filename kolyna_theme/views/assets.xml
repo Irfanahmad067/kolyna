@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_frontend" inherit_id="web.assets_frontend" name="Web Assets">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/less" href="/kolyna_theme/static/src/scss/kolyna_theme.scss" />
+            <script type="text/javascript" src="/kolyna_theme/static/src/js/kolyna_theme.js"></script>
+            <script type="text/javascript" src="/kolyna_theme/static/src/js/fr-ch.js"></script>
+        </xpath>
+    </template>
+</odoo>

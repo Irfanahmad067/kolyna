@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_production_plan_generic,access_production_plan_generic,model_mrp_production_plan,,1,1,1,1
+access_production_plan_line_generic,access_production_plan_line_generic,model_mrp_production_plan_line,,1,1,1,1
+access_delivery_box,access_delivery_box,model_delivery_box,base.group_user,1,1,1,0
+access_delivery_dates,access_delivery_dates,model_delivery_dates,base.group_user,1,1,1,0
+kolyna_mrp.access_merge_production_order,access_merge_production_order,kolyna_mrp.model_merge_production_order,base.group_user,1,1,1,0
+kolyna_mrp.access_delete_production_order,access_delete_production_order,kolyna_mrp.model_delete_production_order,base.group_user,1,1,1,0

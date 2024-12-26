@@ -1,0 +1,303 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* kolyna_theme
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-06 16:00+0000\n"
+"PO-Revision-Date: 2019-05-06 18:02+0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: fr\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "&lt;&lt; Previous Page"
+msgstr "&lt;&lt; Précédent"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "<u>Lire les conditions générales</u>"
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Address<span class=\"control_req\">*</span>"
+msgstr "Adresse et n°<span class=\"control_req\">*</span>"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Already fed using Barf method ?<span class=\"control_req\">*</span>"
+msgstr "VOTRE CHIEN EST-IL DÉJÀ NOURRI AU BARF ?<span class=\"control_req\">*</span>"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Avec l'offre Premium vous aurez la possibilité à l'étape suivante d'éliminer des ingrédients que votre chien ne tolère pas. Idéal pour les chiens allergiques."
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Avec l'offre Standard, la composition des  menus varie en fonction de nos approvisionnements. Chaque chien recoit des sources de proteines diverses essentielles à son equilibre. Ideal pour les chiens n'ayant pas d'allergie alimentaire."
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Avec l'offre Swiss Premium, la totalité des viandes est garantie d'origine suisse. Vous aurez la possibilité à l'étape suivante d'éliminer certains ingrédients en cas d'allergie."
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Babarf vous a été conseillé par un de nos prescripteurs ?<span class=\"control_req\">*</span>"
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Birthdate"
+msgstr "Sa date de naissance"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Breed"
+msgstr "SA RACE"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Choix DU Partenaire<span class=\"control_req\">*</span>"
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "City<span class=\"control_req\">*</span>"
+msgstr "Ville<span class=\"control_req\">*</span>"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Confirm"
+msgstr "Confirmer"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Confirm Email<span class=\"control_req\">*</span>"
+msgstr "Confirmer Email<span class=\"control_req\">*</span>"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Delivery frequency<span class=\"control_req\">*</span>"
+msgstr "Fréquence des livraisons<span class=\"control_req\">*</span>"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Delivery mode"
+msgstr "Mode de livraison"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Desired ration<span class=\"control_req\">*</span>"
+msgstr "Rations désirées<span class=\"control_req\">*</span>"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Email<span class=\"control_req\">*</span>"
+msgstr "Email<span class=\"control_req\">*</span>"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "En cas de commande pour plusieurs chiens, nous les regrouperons afin qu'elles soient livrées en même temps et vous bénéficierez d'un rabais de CHF 8 par chien par livraison, dès le deuxième chien."
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Est-Ce Le Seul Chien Pour Qui Vous Souhaitez Commander ?<span class=\"control_req\">*</span>"
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "First Name"
+msgstr "Prénom"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Ingrédients À Supprimer"
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Intolerances"
+msgstr "Intolérances"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "J'accepte les conditions générales de vente<span class=\"control_req\">*</span>"
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "JE Souhaite Être LIVRÉ<span class=\"control_req\">*</span>"
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Je souhaite m'inscrire à la newsletter afin de recevoir les dernières actualités Babarf"
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "La taille des rations est à choisir en fonction de la corpulence de votre chien et de son niveau d'activité."
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Les frais de livraison sont inclus."
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Les réservations ne sont pas engageantes, elles nous permettent de connaitre vos besoins réels et vos attentes, ainsi que votre intérêt pour nos produits."
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "MM/DD/YYYY"
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "NPA<span class=\"control_req\">*</span>"
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Name"
+msgstr "Nom"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Name<span class=\"control_req\">*</span>"
+msgstr "SON NOM<span class=\"control_req\">*</span>"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Next Page &gt;&gt;"
+msgstr "Suivant &gt;&gt;"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "No"
+msgstr "Non"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Note : veuillez remplir les champs marqués d'un <span class=\"control_req\">*</span>."
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Nous vous recontacterons s’il ne nous est pas possible de garantir la suppression de-s l’ingrédient-s mentionné-s."
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Offer"
+msgstr "CHOISIR UNE OFFRE"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Our Offers Barf<span class=\"control_req\">*</span>"
+msgstr "Nos offres Barf<span class=\"control_req\">*</span>"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Pays<span class=\"control_req\">*</span>"
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Pensez à la taille de votre congélateur afin de choisir une fréquence adaptée."
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Phone<span class=\"control_req\">*</span>"
+msgstr "Téléphone<span class=\"control_req\">*</span>"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Pickup frequency<span class=\"control_req\">*</span>"
+msgstr "Fréquence des retraits<span class=\"control_req\">*</span>"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Pour les chiens de moins d'un an, indiquez le poids estimé à l'âge adulte, et nous vous contacterons afin de convenir ensemble d'une ration adaptée à leur croissance."
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "REMARQUES COMPLÉMENTAIRES"
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Ration Quotidienne (GR)"
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Si autre(s), précisez ci-après"
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Si votre chien n’est pas encore nourri au BARF, nous vous fournirons des rations évolutives à lui donner durant les deux premiers mois afin que le changement de régime se fasse dans les meilleures conditions."
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Submit"
+msgstr "Soumettre le formulaire"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Swiss"
+msgstr "Suisse"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Votre Abonnement (CHF/MOIS)"
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Vous avez la possibilité d'éliminer les ingrédients que votre chien ne toléré pas. <b>Cochez au maximum 3 ingrédients à supprimer</b>. Nous les remplacerons par d'autres afin de garder une ration équilibrée avec tous les apports nécessaires."
+msgstr ""
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Weight<span class=\"control_req\">*</span>"
+msgstr "SON POIDS (KG)<span class=\"control_req\">*</span>"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Yes"
+msgstr "Oui"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Your Dog"
+msgstr "Votre chien"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Your Name<span class=\"control_req\">*</span>"
+msgstr "Votre nom<span class=\"control_req\">*</span>"
+
+#. module: kolyna_theme
+#: model_terms:ir.ui.view,arch_db:kolyna_theme.kolina_theme_template
+msgid "Your Personal Info"
+msgstr "Vos coordonnées"

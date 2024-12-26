@@ -1,0 +1,334 @@
+
+$theme-color: #A0D468;
+$font-color: rgb(103, 111, 124);
+
+$screen-sm-max: 576px;
+$screen-md-max: 768px;
+$screen-lg-max: 992px;
+$screen-xl-max: 1200px;
+
+body {
+	background-image: url(/kolyna_theme/static/src/img/theme.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow:scroll;
+}
+
+form label {
+	font-weight: normal;
+}
+
+.map-responsive {
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+
+}
+.map-responsive iframe {
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
+.kolyna_form_theme {
+	width: 61%;
+	margin-left: auto;
+  	margin-right: auto;
+	background-color: white;
+	border-radius: 4px 4px 0 0;
+	border: 0.4px solid #aeabab;
+	padding-bottom: 30px;
+	margin-top: 15px;
+
+	@media (max-width: $screen-sm-max) { 
+		width: auto;
+		margin: 10px 10px 0 10px;
+	}
+
+	@media (max-width: $screen-md-max) { 
+		width: auto;
+		margin: 10px 10px 0 10px;;
+	}
+
+	> .main_container, .page_2, .page_3, .page_4, .page_5, .page_6 {
+		padding: 15px;
+
+		@media (max-width: $screen-sm-max) { 
+			padding: 0px;
+		}
+		
+		> .opt_header {
+			margin: 0px;
+		    display: inline-block;
+		    background: transparent;
+		    padding: 15px 15px 0 15px;
+
+		    > .form_title {
+    			color: #242424;
+		    }
+		}
+
+		> .opt_footer {
+
+			.btn {
+				background-color: $theme-color;
+				border: none;
+				color: white;
+				padding: 8px 14px;
+				text-align: center;
+				font-size: 14px;
+				
+				cursor: pointer;
+				text-transform: uppercase;
+			}
+
+			> .btn-next {
+				float: right;
+				margin: 80px 10px 0 0;
+			}
+
+			> .btn-pre {
+				float: left;
+				margin: 80px 0 0 10px;
+			}
+
+			> .btn-submit {
+				float: right;
+			}
+		}
+
+		> .opt_form {
+
+			padding-left: 14px;
+			padding-right: 14px;
+			font-size: 15px;
+			font-weight: normal;
+
+			> .label_text {
+				margin-top: 10px;
+				color: $font-color;
+			}
+
+			> .form_name, .form_barf, .form_bdate, .form_breed, .form_weight, .form_ration, .form_ing, .form_order_dog, .form_del_mode, .form_partner, .form_fre, .form_fullname, .form_email, .form_cemail, .form_phone, .form_address, .form_npa, .form_city, .form_pay, .form_remark, .form_advise {
+				
+				padding: 5px;
+
+				> .control-label {
+					margin-top: 10px;
+					width: auto;
+					color: $font-color;
+				}
+			}
+
+			> .form_name, .form_barf, .form_breed, .form_ration, .form_other, .form_email, .form_cemail, .form_phone, .form_address, .form_npa, .form_fullname .input_fname, .input_name, .form_city, .form_remark {
+				> .form-control {
+					color: #242424;
+				    border: 1px solid #e0e0e0;
+				    background-color: #f2f3f5;
+				    padding: 8px 12px;
+				    border-radius: 5px;
+				    box-shadow: 0 0 0 2px transparent, 0 1px 0 rgba(0,0,0,0.08) inset;
+				    -webkit-transition: all 0.3s;
+				    transition: all 0.3s;
+				    max-width: 80%;
+				    font-size: 14px;
+					font-weight: 700;
+
+				    @media (max-width: $screen-sm-max) {
+						max-width: none;
+					}
+			    }
+
+			    > .control-text {
+					margin-top: 5px;
+			    }
+			}
+
+			> .form_npa .form-control {
+				max-width: 40% !important;
+
+				@media (max-width: $screen-sm-max) {
+					max-width: none !important;
+				}
+
+			}
+
+			> .form_remark .form-control {
+				max-width: 60% !important;
+			}
+
+			> .form_pay .form-control {
+				width: fit-content;
+			}
+
+			> .form_address .form-control, .form_city .form-control {
+				max-width: 70% !important;
+
+				@media (max-width: $screen-sm-max) {
+					max-width: none !important;
+				}
+
+			}
+
+			> .form_name, .form_barf, .form_breed, .form_weight, .form_other, .form_email, .form_cemail, .form_phone, .form_address, .form_npa, .form_city, .form_remark {
+				> .form-control:focus {
+					box-shadow: 0 0 5px $theme-color;
+					border: 2px solid $theme-color;
+				}
+			}
+
+			> .form_fullname .input {
+
+				width: 100%;
+
+				> .input_fname, .input_name {
+					float: left;
+					margin-right: 5px;
+					width: 40%;
+
+					> input {
+						max-width: 100%;
+					}
+
+					> .fname_label, .name_label {
+						font-size: 11px;
+						color: #524a4a;
+					}
+				}
+
+				> .input_fname, .input_name {
+					> .form-control:focus {
+						box-shadow: 0 0 5px $theme-color;
+						border: 2px solid $theme-color;
+					}
+				}
+			}
+
+			> .form_note, .form_news, .form_checkbox_confirm {
+				margin-top: 10px;
+				width: auto;
+				color: $font-color;
+				padding: 5px;
+
+				> .link {
+					font-size: 11px;
+				}
+			}
+
+			> .form_ing .form_checkbox .checkbox_item {
+				margin-right: 20px;
+			}
+
+			> .form_other {
+				margin-top: 10px;
+			}
+
+			> .form_ration_cal, .form_offer_amt, .form_ur_sub {
+				margin-top: 25px;
+				background-color: $theme-color;
+				padding: 10px;
+				border-radius: 5px;
+				width: 69%;
+
+				@media (max-width: $screen-sm-max) { 
+					width: auto;
+				}
+
+				@media (max-width: $screen-md-max) { 
+					width: auto;
+				}
+
+				> .ration_label, .amt_label, .sub_label {
+					display: inline-block;
+					width: auto;
+					color: #fff;
+					text-transform: uppercase;
+					margin-bottom: 0;
+					opacity: 0.65;
+				}
+
+				> .ration_value, .offer_amt, .sub_value .value_label {
+					font-size: 40px;
+					font-weight: 400;
+					color: #fff;
+				}
+
+				> .sub_footer {
+					margin-top: -5px;
+
+					> .sub_footer_label {
+						font-size: 11px;
+						color: #fff;
+						margin-top: -5px;
+						opacity: 0.65;
+					}
+				}
+			}
+
+			> .form_name .control_req, .form_weight .control_req, .form_barf .control_req, .form_ration .control_req, .form_order_dog .control_req, .form_del_mode .control_req, .form_email .control_req, .form_cemail .control_req, .form_partner .control_req, .form_note .control_req, .form_fullname .control_req, .form_phone .control_req, .form_address .control_req, .form_npa .control_req, .form_city .control_req, .form_pay .control_req, .form_remark .control_req, .form_advise .control_req, .form_checkbox_confirm .control_req, .form_fre .control_req, .form_offer_name .control_req, .other_label .control_req {
+				padding-left: 2px;
+				color: rgb(149, 55, 52);
+				font-size: 16px;
+				font-weight: 700;
+				font-family: Verdana;
+				float: none;
+			}
+
+			> .form_ration .ration-info, .opt_other .int-info,  {
+				margin-top: 4px;
+				width: auto;
+				font-size: 11px;
+				color: $font-color;
+			}
+
+			> .form_weight .form-control {
+				color: #242424;
+			    border: 1px solid #e0e0e0;
+			    background-color: #f2f3f5;
+			    padding: 8px 12px;
+			    border-radius: 5px;
+			    box-shadow: 0 0 0 2px transparent, 0 1px 0 rgba(0,0,0,0.08) inset;
+			    -webkit-transition: all 0.3s;
+			    transition: all 0.3s;
+			    width: fit-content;
+			}
+
+			> .form_bdate .date {
+				width: fit-content;
+			}
+
+			> .form_barf .radio_item, .form_order_dog .radio_item, .form_advise .radio_item {
+				margin-right: 10px;
+				color: $font-color;
+			}
+
+			> .form_partner .form-control, .form_del_mode .form-control, .form_partner .form-control, .form_offer_name .form-control {
+				width: fit-content;
+				color: $font-color;
+				margin-bottom: 10px;
+			}
+
+			> .label_info {
+				margin-top: 20px;
+				border-radius: 5px;
+    			padding: 15px;
+				border: 2px solid $theme-color;
+			}
+		}
+	}
+
+}
+
+.kolyna_icon {
+	margin-left: auto;
+  	margin-right: auto;
+	background-color: white;
+	border-radius: 100px;
+	margin-top: 50px;
+	padding: 10px;
+	margin-bottom: 30px;
+}

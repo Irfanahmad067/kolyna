@@ -1,0 +1,22 @@
+table.mps_ration_table tbody > tr > td:not(:first-child) {
+    border: 1px solid lightgray;
+    text-align: center;
+}
+
+table.mps_ration_table tbody > tr > td:first-child {
+    background-color: #875A7B;
+    color: white;
+    font-size: 1em;
+}
+
+table.mps_ration_table thead > tr > th:first-child {
+    min-width: 250px;
+    vertical-align: bottom;
+    font-size: 1.2em;
+}
+
+
+table.mps_ration_table thead > tr > th:not(:first-child) {
+    border: 1px solid lightgray;
+    min-width: 80px;
+}
